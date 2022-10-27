@@ -425,7 +425,7 @@ USD | 美元
 	
 	    public static void main(String[] args) {
 	
-	        String apiKey = "a2450a85a4b00b626ed94490101a8613";
+	        String apiKey = "";
 	
 	        String data = "requestNo=123&currency=USD&limitAmount=100&cardType=NORMAL";
 	
