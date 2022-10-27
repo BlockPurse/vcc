@@ -109,7 +109,7 @@
 	}
 
 
-#### 代签名字符串
+#### 待签名字符串
 
 	"requestNo="+requestNo+"&currency="+currency+"&limitAmount="+limitAmount+"&cardType="+cardType
 	
@@ -145,6 +145,8 @@
 		"success": true
 	}
 
+<mark>result 为json格式加密后的字符串内容，需要解密后反序列化json字符串。</mark>
+
 <br>
 
 ### 卡信息查询
@@ -167,7 +169,7 @@
 		"verify": "234rfre432wefgyu763ewdft"
 	}
 
-#### 代签名字符串
+#### 待签名字符串
 
 	"cardId ="+ cardId
 	
@@ -228,6 +230,9 @@
 		"success": true
 	}	
 	
+	
+<mark>result 为json格式加密后的字符串内容，需要解密后反序列化json字符串。</mark>
+	
 <br>
 	
 ### 卡片充值
@@ -254,7 +259,7 @@
 		"verify": "string"
 	}
 
-#### 代签名字符串
+#### 待签名字符串
 
 	"requestNo="+requestNo+"&cardId="+cardId+"&amount="+amount
 
@@ -270,12 +275,15 @@
 #### 响应示例
 
 	{
-	"errorCode": "string",
-	"errorMsg": "string",
-	"result": "221020000012123123",
-	"success": true
+		"errorCode": "string",
+		"errorMsg": "string",
+		"result": "221020000012123123",
+		"success": true
 	}
 	
+	
+<mark>result 为加密后的内容，需要解密。</mark>
+
 <br>
 
 ### 卡片退款
@@ -302,7 +310,7 @@
 		"verify": "string"
 	}
 
-#### 代签名字符串
+#### 待签名字符串
 
 	"requestNo="+requestNo+"&cardId="+cardId+"&amount="+amount
 
@@ -318,12 +326,14 @@
 #### 响应示例
 
 	{
-	"errorCode": "string",
-	"errorMsg": "string",
-	"result": "221020000012123123",
-	"success": true
+		"errorCode": "string",
+		"errorMsg": "string",
+		"result": "221020000012123123",
+		"success": true
 	}
 	
+<mark>result 为加密后的内容，需要解密。</mark>
+		
 <br>
 
 ### 销卡
@@ -348,7 +358,7 @@
 		"verify": "string"
 	}
 
-#### 代签名字符串
+#### 待签名字符串
 
 	"requestNo="+requestNo+"&cardId="+cardId
 
@@ -364,12 +374,14 @@
 #### 响应示例
 
 	{
-	"errorCode": "string",
-	"errorMsg": "string",
-	"result": "221020000012123123",
-	"success": true
+		"errorCode": "string",
+		"errorMsg": "string",
+		"result": "221020000012123123",
+		"success": true
 	}
 	
+<mark>result 为加密后的内容，需要解密。</mark>
+		
 <br>
 <br>
 <br>
@@ -425,7 +437,7 @@ USD | 美元
 	
 	    public static void main(String[] args) {
 	
-	        String apiKey = "";
+	        String apiKey = "a2450a85a4b00b626ed94490101a8613";
 	
 	        String data = "requestNo=123&currency=USD&limitAmount=100&cardType=NORMAL";
 	
