@@ -5,16 +5,16 @@
 ## 目录
 
 * 报文传输约定
-	- 报文传输协议
-	- 报文格式约定
-	- 报文加解密
+  - 报文传输协议
+  - 报文格式约定
+  - 报文加解密
 
 * API 接口
-	- 开卡申请
-	- 卡信息查询
-	- 卡片充值
-	- 卡片退款
-	- 销卡
+  - 开卡申请
+  - 卡信息查询
+  - 卡片充值
+  - 卡片退款
+  - 销卡
 * 开卡币种
 * 工具类
 
@@ -30,8 +30,8 @@
 <br>
 
 	接口采用https POST方式进行报文传输
-	
-<br>	
+
+<br>
 
 ### 报文格式约定
 
@@ -41,16 +41,16 @@
 	如：
 	
 	{
-		"custNo": "客户编号（平台开户成功返回的客户编号）",
-		"request": 接口具体请求参数（泛型）
-		"verify": "7iu23kj ...... ew3i2o4r" 签名串
+      "custNo": "客户编号（平台开户成功返回的客户编号），必填",
+      "request": 接口具体请求参数（泛型）
+      "verify": "7iu23kj ...... ew3i2o4r" 签名串
 	}
-	
-	
+
+
 <br>
 
 ### 报文加解密
-	
+
 	部分或全部接口需要对部分请求参数进行组装加密对其进行签名验证，具体拼接字段见接口内容。
 	
 	第一步、明文拼接相关字段字符串，如：
@@ -60,7 +60,7 @@
 	第二步、使用Base64对字符串进行Encode，得到待加密字符串。
 	
 	第三步、使用apiKey 对待加密字符串进行加密，加密方式为AES。
-	
+
 <br>
 <br>
 <br>
@@ -78,41 +78,41 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复   
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
 2 | currency  | 开卡币种  | String（16）| 必填 |  CNH-离岸人民币；CAD-加元；HKD-港币 USD-美元
 3 | startDate | 生效日期 | String(10) | 必填 | 格式： yyyy-MM-dd
 4 | endDate | 失效日期 | String(10) | 必填 | 格式： yyyy-MM-dd
-5 | limitAmount | 开卡金额 | Number | 必填 | 
+5 | limitAmount | 开卡金额 | Number | 必填 |
 6 | enableMultiUse | 多次卡 | String(16) | 必填 | YES-多次卡; NO-单次卡
 7 | enableCurrencyCheck | 限制交易币种 | String(16) | 必填 | YES-限制;NO-不限制
-8 | cardAlias | 卡片别名 | String(32) | / | 
-9 | binRangeId | 卡头 | String(16) | 必填 | 
+8 | cardAlias | 卡片别名 | String(32) | / |
+9 | binRangeId | 卡头 | String(16) | 必填 |
 10 | cardType | 卡类型 | String(16) | 必填 | 卡类型(NORMAL-普通卡)
 
 #### 请求示例
 
 	{
-		"custNo": "1585199979276017664",
-		"request": {
-			"binRangeId": "522981",
-			"cardAlias": "信息",
-			"cardType": "NORMAL",
-			"currency": "USD",
-			"enableCurrencyCheck": "YES",
-			"enableMultiUse": "YES",
-			"endDate": "2023-10-25",
-			"limitAmount": 100,
-			"requestNo": "20222102618240002",
-			"startDate": "2022-10-26"
-		},
-		"verify": "234rfre432wefgyu763ewdft"
+      "custNo": "1585199979276017664",
+      "request": {
+        "binRangeId": "522981",
+        "cardAlias": "信息",
+        "cardType": "NORMAL",
+        "currency": "USD",
+        "enableCurrencyCheck": "YES",
+        "enableMultiUse": "YES",
+        "endDate": "2023-10-25",
+        "limitAmount": 100,
+        "requestNo": "20222102618240002",
+        "startDate": "2022-10-26"
+      },
+      "verify": "234rfre432wefgyu763ewdft"
 	}
 
 
 #### 待签名字符串
 
 	"requestNo="+requestNo+"&currency="+currency+"&limitAmount="+limitAmount+"&cardType="+cardType
-	
+
 
 <br>
 
@@ -121,32 +121,33 @@
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
 1  | requestNo | 请求流水号 | String(32) | 必填 |
-2  | orderNo | 平台订单号 | String(18) | 必填 | 
-3  | cardId | 卡编号 | String | 必填 | 
-4  | currency | 卡币种 | String | 必填 | 
-5  | cardNo | 卡号 | String | 必填 | 
-6  | cardCvv | 卡CVV | String | 必填 | 
-7  | expiryDate | 失效日期 | String | 必填 | 
+2  | orderNo | 平台订单号 | String(18) | 必填 |
+3  | cardId | 卡编号 | String | 必填 |
+4  | currency | 卡币种 | String | 必填 |
+5  | cardNo | 卡号 | String | 必填 |
+6  | cardCvv | 卡CVV | String | 必填 |
+7  | expiryDate | 失效日期 | String | 必填 |
 
 #### 响应示例
 
-	{
-		"errorCode": "string",
-		"errorMsg": "string",
-		"result": {
-			"cardCvv": "string",
-			"cardId": "string",
-			"cardNo": "string",
-			"currency": "string",
-			"expiryDate": "string",
-			"orderNo": "string",
-			"requestNo": "string"
-		},
-		"success": true
-	}
+    {
+      "errorCode": null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
+      "success": true
+    }
 
-<mark>result 为json格式加密后的字符串内容，需要解密后反序列化json字符串。</mark>
+result 解密后格式
 
+    {
+      "cardCvv": "string",
+      "cardId": "string",
+      "cardNo": "string",
+      "currency": "string",
+      "expiryDate": "string",
+      "orderNo": "string",
+      "requestNo": "string"
+    }
 <br>
 
 ### 卡信息查询
@@ -157,22 +158,22 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号   
+1  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
 
 
 #### 请求示例
 	{
-		"custNo": "1585199979276017664",
-		"request": {
-			"cardId": "522981"
-		},
-		"verify": "234rfre432wefgyu763ewdft"
+      "custNo": "1585199979276017664",
+      "request": {
+        "cardId": "522981"
+      },
+      "verify": "234rfre432wefgyu763ewdft"
 	}
 
 #### 待签名字符串
 
 	"cardId ="+ cardId
-	
+
 <br>
 
 #### 响应结果
@@ -189,11 +190,11 @@
 6  | cardCvv | CVV | String | 必填 |
 7  | cardType | 卡类型 | String | 必填 |
 8  | expiryDate | 失效日期 | String | 必填 |
-9  | alias | 别名 | String | 必填 |
-10  | label | 标签 | String | 必填 |
+9  | alias | 别名 | String | / |
+10  | label | 标签 | String | / |
 11  | activeDate | 生效日期 | String | 必填 |
 12  | limitAmount | 当前额度 | String | 必填 |
-13 | balance | 卡余额 | String | 必填 |
+13  | balance | 卡余额 | String | 必填 |
 14  | minAmt | 最低限额 | String | 必填 |
 15  | maxAmt | 最高限额 | String | 必填 |
 16  | usedAmt | 已用额度 | String | 必填 |
@@ -204,37 +205,38 @@
 
 #### 响应示例
 	{
-		"errorCode": "string",
-		"errorMsg": "string",
-		"result": {
-			"activeDate": "string",
-			"alias": "string",
-			"balance": 0,
-			"cardCvv": 0,
-			"cardId": "string",
-			"cardNo": "string",
-			"cardType": "string",
-			"currency": "string",
-			"currencyCheck": "string",
-			"customerId": "string",
-			"expiryDate": "string",
-			"label": "string",
-			"limitAmount": 0,
-			"maxAmt": 0,
-			"minAmt": 0,
-			"multiUse": "string",
-			"orderNo": "string",
-			"status": "string",
-			"usedAmt": 0
-		},
-		"success": true
+      "errorCode": null,
+      "errorMsg": null,
+      "result": "23e9roifkjehyu......er8r9o3kjerufre3o",
+      "success": true
 	}	
-	
-	
-<mark>result 为json格式加密后的字符串内容，需要解密后反序列化json字符串。</mark>
-	
+
+result 解密后格式
+  
+    {
+      "activeDate": "string",
+      "alias": "string",
+      "balance": 0,
+      "cardCvv": 0,
+      "cardId": "string",
+      "cardNo": "string",
+      "cardType": "string",
+      "currency": "string",
+      "currencyCheck": "string",
+      "customerId": "string",
+      "expiryDate": "string",
+      "label": "string",
+      "limitAmount": 0,
+      "maxAmt": 0,
+      "minAmt": 0,
+      "multiUse": "string",
+      "orderNo": "string",
+      "status": "string",
+      "usedAmt": 0
+    }
+
 <br>
-	
+
 ### 卡片充值
 
 <br>
@@ -243,20 +245,20 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复   
-2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号   
-3  | amount | 充值金额| Number | 必填 | 
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+3  | amount | 充值金额| Number | 必填 |
 
 #### 请求示例
 
 	{
-		"custNo": "string",
-		"request": {
-			"amount": 0,
-			"cardId": "string",
-			"requestNo": "string"
-		},
-		"verify": "string"
+      "custNo": "string",
+      "request": {
+        "amount": 0,
+        "cardId": "string",
+        "requestNo": "string"
+      },
+      "verify": "string"
 	}
 
 #### 待签名字符串
@@ -269,20 +271,22 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 平台订单号 | String | 必填 | 
+1  | orderNo | 平台订单号 | String | 必填 |
 
 
 #### 响应示例
 
 	{
-		"errorCode": "string",
-		"errorMsg": "string",
-		"result": "221020000012123123",
-		"success": true
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "78ikejr........fhr3iekj",
+      "success": true
 	}
-	
-	
-<mark>result 为加密后的内容，需要解密。</mark>
+
+
+result 解密后内容
+
+    221020000012123123
 
 <br>
 
@@ -294,20 +298,20 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复   
-2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号   
-3  | amount | 充值金额| Number | 必填 | 
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+3  | amount | 充值金额| Number | 必填 |
 
 #### 请求示例
 
 	{
-		"custNo": "string",
-		"request": {
-			"amount": 0,
-			"cardId": "string",
-			"requestNo": "string"
-		},
-		"verify": "string"
+      "custNo": "string",
+      "request": {
+        "amount": 0,
+        "cardId": "string",
+        "requestNo": "string"
+      },
+      "verify": "string"
 	}
 
 #### 待签名字符串
@@ -320,20 +324,22 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 平台订单号 | String | 必填 | 
+1  | orderNo | 平台订单号 | String | 必填 |
 
 
 #### 响应示例
 
 	{
-		"errorCode": "string",
-		"errorMsg": "string",
-		"result": "221020000012123123",
-		"success": true
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "fe3456yhgfre56uhgfe45678ijhgfew3",
+      "success": true
 	}
-	
-<mark>result 为加密后的内容，需要解密。</mark>
-		
+
+result 解密后内容
+
+    221020000012123123
+
 <br>
 
 ### 销卡
@@ -344,18 +350,18 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复   
-2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号   
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
 
 #### 请求示例
 
 	{
-		"custNo": "string",
-		"request": {
-			"cardId": "string",
-			"requestNo": "string"
-		},
-		"verify": "string"
+      "custNo": "string",
+      "request": {
+        "cardId": "string",
+        "requestNo": "string"
+      },
+      "verify": "string"
 	}
 
 #### 待签名字符串
@@ -368,25 +374,28 @@
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 平台订单号 | String | 必填 | 
+1  | orderNo | 平台订单号 | String | 必填 |
 
 
 #### 响应示例
 
 	{
-		"errorCode": "string",
-		"errorMsg": "string",
-		"result": "221020000012123123",
-		"success": true
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
 	}
-	
-<mark>result 为加密后的内容，需要解密。</mark>
-		
+
+
+result 解密后内容
+
+    221020000012123123
+
 <br>
 <br>
 <br>
 <br>
-	
+
 ## 开卡币种
 
 代码| 描述|
@@ -415,7 +424,7 @@ USD | 美元
 
 <br>
 
-#### Java Class    
+#### Java Class
 
 	import cn.hutool.core.codec.Base64;
 	import cn.hutool.core.util.CharsetUtil;
