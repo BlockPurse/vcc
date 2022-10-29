@@ -15,6 +15,8 @@
   - 卡片充值
   - 卡片退款
   - 销卡
+  - 卡片交易明细
+  - 卡片账单明细
 * 开卡币种
 * 工具类
 
@@ -72,6 +74,8 @@
 
 ### 开卡申请
 
+### URL 
+/api/v1.0/card/apply
 <br>
 
 #### 请求参数
@@ -153,6 +157,9 @@ result 解密后格式
 ### 卡信息查询
 
 <br>
+
+### URL
+/api/v1.0/card/info
 
 #### 请求参数
 
@@ -241,6 +248,9 @@ result 解密后格式
 
 <br>
 
+### URL
+/api/v1.0/card/recharge
+
 #### 请求参数
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
@@ -294,6 +304,9 @@ result 解密后内容
 
 <br>
 
+### URL
+/api/v1.0/card/refund
+
 #### 请求参数
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
@@ -346,6 +359,9 @@ result 解密后内容
 
 <br>
 
+### URL
+/api/v1.0/card/cancel
+
 #### 请求参数
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
@@ -392,9 +408,207 @@ result 解密后内容
     221020000012123123
 
 <br>
+
+### 卡片交易明细
+
+<br>
+
+### URL
+/api/v1.0/card/trades
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+2  | beginTime | 开始时间 | String | 必填 | 开始时间 格式yyyy-MM-dd
+3  | endTime | 结束时间 | String | 必填 | 开始时间 格式yyyy-MM-dd
+4  | currentPage | 当前页 | Number | 必填 | 正整数
+5  | pageSize | 分页大小 | Number | 必填 | 最大50
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+      "beginTime": "string",
+      "cardId": "string",
+      "currentPage": 0,
+      "endTime": "string",
+      "pageSize": 0
+      },
+      "verify": "string"
+  }
+
+#### 待签名字符串
+
+	"beginTime="+beginTime+"&endTime="+endTime+"&currentPage="+currentPage
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | totalCount | 总条数 | String | 必填 |
+2  | currentPage | 当前页 | String | 必填 |
+3  | pageSize | 页行数 | String | 必填 |
+4  | list | 数据集 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": {
+        "list": ""
+        "currentPage": 0,
+        "pageSize": 0,
+        "totalCount": 0
+      },
+      "success": true
+    }
+
+result 解密后内容
+
+    [
+      {
+        "approvalCode": "string",
+        "billCurrency": "string",
+        "billCurrencyAmt": "string",
+        "cardId": "string",
+        "isCredit": "string",
+        "merchantName": "string",
+        "recordNo": "string",
+        "settleDate": "string",
+        "transCurrency": "string",
+        "transCurrencyAmt": "string"
+      }
+    ]
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | recordNo | 记录编号 | String | 必填 |
+2  | cardId | 卡唯一编号 | String | 必填 |
+3  | occurTime | 交易发生时间 | String | 必填 |
+4  | transCurrency | 交易币种 | String | / |
+5  | transCurrencyAmt | 交易币种金额 | String | 必填 |
+6  | localCurrency | 卡本币种 | String | 必填 |
+7  | localCurrencyAmt | 卡本币种金额 | String | 必填 |
+8  | respCode | 交易响应码 | String | 必填 |
+9  | respCodeDesc | 交易响应码描述 | String | 必填 |
+10  | approvalCode | 授权码 | String | / |
+11 | declineReason | 交易拒绝原因 | String | / |
+12  | messageType | 交易类型 | String | 必填 |
+13  | messageTypeDesc | 交易类型描述 | String | 必填 |
+14  | merchantName | 商户名称 | String | 必填 |
+
+<br>
+
+### 卡片账单明细
+
+<br>
+
+### URL
+/api/v1.0/card/settlements
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+2  | beginTime | 开始时间 | String | 必填 | 开始时间 格式yyyy-MM-dd
+3  | endTime | 结束时间 | String | 必填 | 开始时间 格式yyyy-MM-dd
+4  | currentPage | 当前页 | Number | 必填 | 正整数
+5  | pageSize | 分页大小 | Number | 必填 | 最大50
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+      "beginTime": "string",
+      "cardId": "string",
+      "currentPage": 0,
+      "endTime": "string",
+      "pageSize": 0
+      },
+      "verify": "string"
+}
+
+#### 待签名字符串
+
+	"beginTime="+beginTime+"&endTime="+endTime+"&currentPage="+currentPage
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | totalCount | 总条数 | String | 必填 |
+2  | currentPage | 当前页 | String | 必填 |
+3  | pageSize | 页行数 | String | 必填 |
+4  | list | 数据集 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": {
+        "list": ""
+        "currentPage": 0,
+        "pageSize": 0,
+        "totalCount": 0
+      },
+      "success": true
+    }
+
+result 解密后内容
+
+    [
+      {
+        "approvalCode": "string",
+        "billCurrency": "string",
+        "billCurrencyAmt": "string",
+        "cardId": "string",
+        "isCredit": "string",
+        "merchantName": "string",
+        "recordNo": "string",
+        "settleDate": "string",
+        "transCurrency": "string",
+        "transCurrencyAmt": "string"
+      }
+    ]
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | recordNo | 记录编号 | String | 必填 |
+2  | cardId | 卡唯一编号 | String | 必填 |
+2  | settleDate | 账单日期 | String | 必填 |
+2  | transCurrency | 交易币种 | String | 必填 |
+2  | transCurrencyAmt | 交易金额 | String | 必填 |
+2  | billCurrency | 账单币种 | String | 必填 |
+2  | billCurrencyAmt | 账单金额 | String | 必填 |
+2  | approvalCode | 授权码 | String | / |
+2  | isCredit | 收付标识 | String | 必填 |
+2  | merchantName | 商户名称 | String | 必填 |
+
+
+<br>
+
 <br>
 <br>
 <br>
+<br>
+
 
 ## 开卡币种
 
