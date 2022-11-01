@@ -602,6 +602,81 @@ Result:
 2  | merchantName | 商户名称 | String | 必填 |
 
 
+### 账户余额查询
+
+<br>
+
+### URL
+/api/v1.0/account/balance
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | currency | 账户币种 | String(16) | / |  不填查所有币种
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "currency": "USD",
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"custNo="+custNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 平台订单号 | String | 必填 |
+
+
+#### 响应示例
+
+    {
+      "success": true,
+      "result": nbhgYUnBGYumn...bgYUIKM,
+      "errorCode": null,
+      "errorMsg": null
+    }
+
+
+result 解密后内容
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | accountId | 余额账户编号 | String | 必填 |
+2  | accountType | 账户类型 | String | 必填 |
+3  | currency | 账户币种 | String | 必填 |
+4  | balance | 总余额 | Number | 必填 |
+5  | availableBal | 可用余额 | Number | 必填 |
+6  | freezeBal | 冻结余额 | Number | 必填 |
+7  | customerId | 客户编号 | String | 必填 |
+8  | status | 状态 | String | 必填 |
+
+
+    [
+      {
+        "accountId": "1587002211281670144",
+        "accountType": "balance",
+        "currency": "USD",
+        "balance": 999870.34,
+        "availableBal": 999870.34,
+        "freezeBal": 0,
+        "customerId": "1587002211214565376",
+        "status": "normal"
+      }
+    ]
+
+<br>
+
 <br>
 
 <br>
