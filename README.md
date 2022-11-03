@@ -4,6 +4,8 @@
 
 ## 目录
 
+* 网关地址
+
 * 报文传输约定
   - 报文传输协议
   - 报文格式约定
@@ -12,6 +14,7 @@
 * API 接口
   - 开卡申请
   - 卡信息查询
+  - 卡图信息查询
   - 卡片充值
   - 卡片退款
   - 销卡
@@ -23,6 +26,13 @@
 
 <br>
 <br>
+
+## 网关地址
+
+正式环境 https://vccapi.blockpurse.io
+
+测试环境 http://10.254.198.30
+
 
 ## 报文传输约定
 
@@ -241,6 +251,62 @@ result 解密后格式
       "orderNo": "string",
       "status": "string",
       "usedAmt": 0
+    }
+
+<br>
+
+### 卡图信息查询
+
+<br>
+
+### URL
+/api/v1.0/card/cardImg
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "cardId": "string",
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"cardId="+cardId
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | frontBase64 | 卡片正面图像 | String | 必填 | base64图片内容
+2  | backBase64 | 卡片背面图像 | String | 必填 | base64图片内容
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
+	}
+
+
+result 解密后内容
+
+    {
+      "frontBase64": "asdfasdfasdfa23...erfgfre456yfdwq",
+      "backBase64": "asdfasdfasdfa23...erfgfre456yfdwq"
     }
 
 <br>
