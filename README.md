@@ -21,6 +21,7 @@
   - 卡片交易明细
   - 卡片账单明细
   - 账户余额查询
+  - 卡片交易推送
 * 开卡币种
 * 工具类
 
@@ -541,16 +542,20 @@ result 解密后内容
 
     [
       {
-        "approvalCode": "string",
-        "billCurrency": "string",
-        "billCurrencyAmt": "string",
-        "cardId": "string",
-        "isCredit": "string",
-        "merchantName": "string",
         "recordNo": "string",
-        "settleDate": "string",
+        "cardId": "string",
+        "occurTime": "string",
         "transCurrency": "string",
-        "transCurrencyAmt": "string"
+        "transCurrencyAmt": "string",
+        "localCurrency": "string",
+        "localCurrencyAmt": "string",
+        "respCode": "string",
+        "respCodeDesc": "string",
+        "approvalCode": "string",
+        "declineReason": "string",
+        "messageType": "string",
+        "messageType": "string",
+        "merchantName": "string"
       }
     ]
 
@@ -741,6 +746,67 @@ result 解密后内容
         "status": "normal"
       }
     ]
+
+<br>
+
+### 交易推送推送
+
+<br>
+
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | dataType | 数据类型 | String | 必填 | AUTH-交易
+2  | request | 通知内容 | String | 必填 | 加密内容
+
+
+#### 响应示例
+
+	{
+      "dataType": "AUTH",
+      "request": "234rfde567uhgdw45678ijhgjhde",
+    }
+
+request 解密后内容
+
+    {
+      "recordNo": "string",
+      "cardId": "string",
+      "occurTime": "string",
+      "transCurrency": "string",
+      "transCurrencyAmt": "string",
+      "localCurrency": "string",
+      "localCurrencyAmt": "string",
+      "respCode": "string",
+      "respCodeDesc": "string",
+      "approvalCode": "string",
+      "declineReason": "string",
+      "messageType": "string",
+      "messageType": "string",
+      "merchantName": "string"
+    }
+
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | recordNo | 记录编号 | String | 必填 |
+2  | cardId | 卡唯一编号 | String | 必填 |
+3  | occurTime | 交易发生时间 | String | 必填 |
+4  | transCurrency | 交易币种 | String | / |
+5  | transCurrencyAmt | 交易币种金额 | String | 必填 |
+6  | localCurrency | 卡本币种 | String | 必填 |
+7  | localCurrencyAmt | 卡本币种金额 | String | 必填 |
+8  | respCode | 交易响应码 | String | 必填 |
+9  | respCodeDesc | 交易响应码描述 | String | 必填 |
+10  | approvalCode | 授权码 | String | / |
+11 | declineReason | 交易拒绝原因 | String | / |
+12  | messageType | 交易类型 | String | 必填 |
+13  | messageTypeDesc | 交易类型描述 | String | 必填 |
+14  | merchantName | 商户名称 | String | 必填 |
 
 <br>
 
