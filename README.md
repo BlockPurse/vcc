@@ -483,7 +483,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/card/cancel
+/api/v1.0/card/close
 
 #### 请求参数
 
