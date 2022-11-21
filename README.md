@@ -572,22 +572,35 @@ result 解密后内容
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 平台订单号 | String | 必填 |
-
+1  | requestNo | 请求流水号 | String(32) | 必填 |
+2  | orderNo | 平台订单号 | String(18) | 必填 |
+3  | cardId | 卡编号 | String | 必填 |
+4  | currency | 卡币种 | String | 必填 |
+5  | cardNo | 卡号 | String | 必填 |
+6  | cardCvv | 卡CVV | String | 必填 |
+7  | expiryDate | 失效日期 | String | 必填 |
 
 #### 响应示例
 
-	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+    {
+      "errorCode": null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
-	}
+    }
 
 
 result 解密后内容
 
-    221020000012123123
+    {
+      "cardCvv": "string",
+      "cardId": "string",
+      "cardNo": "string",
+      "currency": "string",
+      "expiryDate": "string",
+      "orderNo": "string",
+      "requestNo": "string"
+    }
 
 <br>
 
