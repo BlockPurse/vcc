@@ -19,6 +19,10 @@
   - 卡片充值
   - 卡片退款
   - 销卡
+  - 查询开卡结果
+  - 查询充值结果
+  - 查询退款结果
+  - 查询销卡结果
   - 卡片交易明细
   - 卡片账单明细
   - 账户余额查询
@@ -491,6 +495,8 @@ result 解密后内容
 ----|-----|-----------|--------|------------|-------|
 1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
 2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
+·  
+
 
 #### 请求示例
 
@@ -531,6 +537,217 @@ result 解密后内容
     221020000012123123
 
 <br>
+
+### 查詢开卡结果
+
+<br>
+
+### URL
+/api/v1.0/card/getApplyInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "requestNo": "string"
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 平台订单号 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
+	}
+
+
+result 解密后内容
+
+    221020000012123123
+
+<br>
+
+### 查询充值结果
+
+<br>
+
+### URL
+/api/v1.0/card/getRechargeInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "requestNo": "string"
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 平台订单号 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
+	}
+
+
+result 解密后内容
+
+    221020000012123123
+
+<br>
+
+### 查询退款结果
+
+<br>
+
+### URL
+/api/v1.0/card/getRefundInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "requestNo": "string"
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 平台订单号 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
+	}
+
+
+result 解密后内容
+
+    221020000012123123
+
+<br>
+
+### 查询销卡结果
+
+<br>
+
+### URL
+/api/v1.0/card/getCloseInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "requestNo": "string"
+      },
+      "verify": "string"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 平台订单号 | String | 必填 |
+
+
+#### 响应示例
+
+	{
+      "errorCode": "string",
+      "errorMsg": "string",
+      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "success": true
+	}
+
+
+result 解密后内容
+
+    221020000012123123
+
 
 ### 卡片交易明细
 
