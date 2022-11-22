@@ -37,7 +37,7 @@
 
 正式环境 https://vccapi.blockpurse.io
 
-测试环境 http://10.254.198.30
+测试环境 https://test-vccapi.blockpurse.io
 
 
 ## 报文传输约定
