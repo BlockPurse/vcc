@@ -26,6 +26,7 @@
   - 卡片交易明细
   - 卡片账单明细
   - 账户余额查询
+  - 模拟卡片交易
   - 卡片交易推送
 * 开卡币种
 * 工具类
@@ -37,7 +38,7 @@
 
 正式环境 https://vccapi.blockpurse.io
 
-测试环境 https://test-vccapi.blockpurse.io
+测试环境 http://10.254.198.30
 
 
 ## 报文传输约定
@@ -992,7 +993,7 @@ Result:
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 平台订单号 | String | 必填 |
+1  | result | 余额信息加密串 | String | 必填 |
 
 
 #### 响应示例
@@ -1034,16 +1035,78 @@ result 解密后内容
 
 <br>
 
-### 交易推送推送
+
+### 模拟卡片交易
 
 <br>
 
+### URL
+/api/v1.0/card/test/trade
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1 | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+2 | cardId  | 卡片编号  | String（16）| 必填 | 非卡号
+3 | tradeType | 生效日期 | String(10) | 必填 | 固定为：AUTH-TRADE
+4 | amount | 失效日期 | Number | 必填 | 仅支持2位小数，最小测试金额为 1.00
+
+#### 请求示例
+
+	{
+      "custNo": "string",
+      "request": {
+        "requestNo": "20221128154500000001",
+        "cardId": "00000000000000000",
+        "tradeType": "AUTH-TRADE",
+        "amount": 10.00
+      },
+      "verify": "asdfwefdw34567........56ygffw3334r5t";
+	}
+
+#### 待签名字符串
+
+	requestNo="+requestNo+"&cardId="+cardId+"&tradeType="+tradeType+"&amount="+amount
+
+<br>
 
 #### 响应结果
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | dataType | 数据类型 | String | 必填 | AUTH-交易
+1  |  result | 平台订单加密串 | String | 必填 |
+
+
+#### 响应示例
+
+    {
+      "success": true,
+      "result": nbhgYUnBGYumn...bgYUIKM,
+      "errorCode": null,
+      "errorMsg": null
+    }
+<br>
+
+result 解密后内容
+
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderNo | 余额账户编号 | String | 必填 |
+
+   22112815490000001
+
+
+<br>
+
+### Webhook 推送
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | dataType | 数据类型 | String | 必填 | AUTH-交易，SETTLEMENT-清算
 2  | request | 通知内容 | String | 必填 | 加密内容
 
 
@@ -1054,7 +1117,7 @@ result 解密后内容
       "request": "234rfde567uhgdw45678ijhgjhde",
     }
 
-request 解密后内容
+request  (dataType=AUTH) 交易解密后内容
 
     {
       "recordNo": "string",
@@ -1078,6 +1141,38 @@ Result:
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
+1  | recordNo | 记录编号 | String | 必填 | 记录编号
+2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
+3  | settleDate | 账单日期 | String | 必填 | 账单日期
+4  | transCurrency | 交易币种 | String | / | 交易币种
+5  | transCurrencyAmt | 交易金额 | String | 必填 | 交易金额
+6  | billCurrency | 账单币种 | String | 必填 | 账单币种
+7  | billCurrencyAmt | 账单金额 | String | 必填 | 账单金额
+8  | approvalCode | 授权码 | String | 必填 | 授权码
+9  | isCredit | 收付标志 | String | 必填 | 收付标志
+10 | merchantName | 商户名称 | String | / | 商户名称
+
+
+request (dataType=SETTLEMENT) 清算解密后内容
+
+    {
+      "recordNo": "string",
+      "cardId": "string",
+      "settleDate": "string",
+      "transCurrency": "string",
+      "transCurrencyAmt": "string",
+      "billCurrency": "string",
+      "billCurrencyAmt": "string",
+      "approvalCode": "string",
+      "isCredit": "string",
+      "merchantName": "string"
+    }
+
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
 1  | recordNo | 记录编号 | String | 必填 |
 2  | cardId | 卡唯一编号 | String | 必填 |
 3  | occurTime | 交易发生时间 | String | 必填 |
@@ -1092,6 +1187,7 @@ Result:
 12  | messageType | 交易类型 | String | 必填 |
 13  | messageTypeDesc | 交易类型描述 | String | 必填 |
 14  | merchantName | 商户名称 | String | 必填 |
+
 
 <br>
 
