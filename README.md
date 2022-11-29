@@ -1187,9 +1187,36 @@ Result:
 12  | messageType | 交易类型 | String | 必填 |
 13  | messageTypeDesc | 交易类型描述 | String | 必填 |
 14  | merchantName | 商户名称 | String | 必填 |
-
-
 <br>
+
+request  (dataType=TYPE_CARD_OPERATE) 卡操作（目前只有被动销卡）
+
+    {
+      "orderId": "22281643123123123132123",
+      "cardId": "31276544435332312312",
+      "userReqNo": "12476544435332312312",
+      "opType": "0",
+      "status": "2",
+      "statusDesc": "string",
+      "amount": "100.00",
+      "fee": "1.00",
+      "createAt": "2022-11-29 12:00:00",
+    }
+
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | orderId | 服务系统返回的单号 | String | 必填 | 记录编号
+2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
+3  | userReqNo | 请求流水号 | String | 必填 | 客户上送的请求流水号
+4  | opType | 订单类型 | int | 必填 | 0-销卡
+5  | status | 状态 | int | 必填 | 状态：0待处理 1处理中 2 成功  3失败
+6  | statusDesc | 状态描述 | String | 必填 | 状态描述
+7  | amount | 订单金额 | String | 必填 | 销卡金额
+8  | fee | 手续费 | String | 必填 | 订单对应的手续费
+9  | createAt | 创建时间 | String | 必填 | 创建的时间，格式yyyy-MM-dd HH :mm:ss
 
 <br>
 
