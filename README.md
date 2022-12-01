@@ -1049,7 +1049,7 @@ result 解密后内容
 ----|-----|-----------|--------|------------|-------|
 1 | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
 2 | cardId  | 卡片编号  | String（16）| 必填 | 非卡号
-3 | tradeType | 交易类型 | String(10) | 必填 | 固定为：AUTH-TRADE
+3 | tradeType | 交易类型 | String(10) | 必填 | 固定为：TRADE
 4 | amount | 交易金额 | Number | 必填 | 仅支持2位小数，最小测试金额为 1.00
 
 #### 请求示例
@@ -1059,7 +1059,7 @@ result 解密后内容
       "request": {
         "requestNo": "20221128154500000001",
         "cardId": "00000000000000000",
-        "tradeType": "AUTH-TRADE",
+        "tradeType": "TRADE",
         "amount": 10.00
       },
       "verify": "asdfwefdw34567........56ygffw3334r5t";
