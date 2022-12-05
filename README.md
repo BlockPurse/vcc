@@ -1302,7 +1302,7 @@ PHONE_REGISTERED|手机号已注册|Mobile phone number has been registered
 LOGIN_ERROR|登录信息不存在或不正确|Login information does not exist or incorrect
 TOKEN_EXPIRED|登录失效|Login failure
 AUTHORIZATION_FAILED|权限校验失败|Permanent verification failed
-OPERATION_NOT_ALLOW|OPERATION_NOT_ALLOW|不允许的操作|Operations that are not allowed
+OPERATION_NOT_ALLOW|不允许的操作|Operations that are not allowed
 AUTH_ERROR|授权失败|Authorization failure
 CAPTCHA_BUSY|验证码获取频繁，请稍后再试|The verification code is frequently obtained, please try again later
 CAPTCHA_ERROR|验证码已过期或不正确|The verification code has expired or incorrect
@@ -1335,4 +1335,4 @@ BIZ_ERROR|业务异常|Business abnormalities
 REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, please try it later
 BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求|If the request IP is not allowed, please use the preset export IP to initiate the request
 ERROR_ENV|该操作只允许在测试环境执行|If the request IP is not allowed, please use the preset export IP to initiate the request
-SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later");
+SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later
