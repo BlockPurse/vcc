@@ -1202,7 +1202,7 @@ request  (dataType=TYPE_CARD_OPERATE) 卡操作（目前只有被动销卡）
       "status": 2,
       "statusDesc": "成功",
       "amount": 100.00,
-      "fee": "0.00",
+      "fee": 0.00,
       "createAt": "2022-11-29 12:00:00",
     }
 
