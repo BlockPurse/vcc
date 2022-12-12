@@ -77,7 +77,7 @@
 	
 	第一步、明文拼接相关字段字符串，如：
 	
-	"requestNo= 20222102618240002&currency=USD&limitAmount=100&cardType=NORMAL"
+	"requestNo= 2022...18240002&currency=USD&limitAmount=100&cardType=NORMAL"
 	
 	第二步、使用Base64对字符串进行Encode，得到待加密字符串。
 	
@@ -116,7 +116,7 @@
 #### 请求示例
 
 	{
-      "custNo": "1585199979276017664",
+      "custNo": "158519...017664",
       "request": {
         "binRangeId": "522981",
         "cardAlias": "信息",
@@ -126,7 +126,7 @@
         "enableMultiUse": "YES",
         "endDate": "2023-10-25",
         "limitAmount": 100,
-        "requestNo": "20222102618240002",
+        "requestNo": "20222...240002",
         "startDate": "2022-10-26"
       },
       "verify": "234rfre432wefgyu763ewdft"
@@ -164,13 +164,13 @@
 result 解密后格式
 
     {
-      "cardCvv": "string",
-      "cardId": "string",
-      "cardNo": "string",
-      "currency": "string",
-      "expiryDate": "string",
-      "orderNo": "string",
-      "requestNo": "string"
+      "cardCvv": "123",
+      "cardId": "2211...194141",
+      "cardNo": "22292...764",
+      "currency": "USD",
+      "expiryDate": "202511",
+      "orderNo": "221102...0000014",
+      "requestNo": "22110...000050"
     }
 <br>
 
@@ -190,7 +190,7 @@ result 解密后格式
 
 #### 请求示例
 	{
-      "custNo": "1585199979276017664",
+      "custNo": "15851...276017664",
       "request": {
         "cardId": "522981"
       },
@@ -220,11 +220,11 @@ result 解密后格式
 9  | alias | 别名 | String | / |
 10  | label | 标签 | String | / |
 11  | activeDate | 生效日期 | String | 必填 |
-12  | limitAmount | 当前额度 | String | 必填 |
-13  | balance | 卡余额 | String | 必填 |
-14  | minAmt | 最低限额 | String | 必填 |
-15  | maxAmt | 最高限额 | String | 必填 |
-16  | usedAmt | 已用额度 | String | 必填 |
+12  | limitAmount | 当前额度 | Number | 必填 |
+13  | balance | 卡余额 | Number | 必填 |
+14  | minAmt | 最低限额 | Number | 必填 |
+15  | maxAmt | 最高限额 | Number | 必填 |
+16  | usedAmt | 已用额度 | Number | 必填 |
 17  | multiUse | 多次使用 | String | 必填 |
 18  | currencyCheck | 限制交易币种 | String | 必填 |
 19  | status | 状态 | String | 必填 |
@@ -241,25 +241,25 @@ result 解密后格式
 result 解密后格式
   
     {
-      "activeDate": "string",
-      "alias": "string",
-      "balance": 0,
-      "cardCvv": 0,
-      "cardId": "string",
-      "cardNo": "string",
-      "cardType": "string",
-      "currency": "string",
-      "currencyCheck": "string",
-      "customerId": "string",
-      "expiryDate": "string",
-      "label": "string",
-      "limitAmount": 0,
-      "maxAmt": 0,
-      "minAmt": 0,
-      "multiUse": "string",
-      "orderNo": "string",
-      "status": "string",
-      "usedAmt": 0
+      "activeDate": "2022-11-01",
+      "alias": "测试卡",
+      "balance": 10000.00,
+      "cardCvv": "123",
+      "cardId": "221...0000001",
+      "cardNo": "22103...0000001",
+      "cardType": "NORMAL",
+      "currency": "USD",
+      "currencyCheck": "YES",
+      "customerId": "1587...000000001",
+      "expiryDate": "202211",
+      "label": "测试卡",
+      "limitAmount": 10000.00,
+      "maxAmt": 10000.00,
+      "minAmt": 0.01,
+      "multiUse": "YES",
+      "orderNo": "22103...0000001",
+      "status": "NORMAL",
+      "usedAmt": 0.00
     }
 
 <br>
@@ -280,13 +280,13 @@ result 解密后格式
 
 #### 请求示例
 	{
-      "custNo": "1585199979276017664",
+      "custNo": "15851999...76017664",
       "verify": "234rfre432wefgyu763ewdft"
 	}
 
 #### 待签名字符串
 
-	"custNo ="+ 1585199979276017664
+	"custNo ="+ 1585199...76017664
 
 <br>
 
@@ -426,7 +426,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    2210200...23123
 
 <br>
 
@@ -481,7 +481,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    221020...23123
 
 <br>
 
@@ -537,7 +537,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    2210200...3123
 
 <br>
 
@@ -596,13 +596,13 @@ result 解密后内容
 result 解密后内容
 
     {
-      "cardCvv": "string",
-      "cardId": "string",
-      "cardNo": "string",
-      "currency": "string",
-      "expiryDate": "string",
-      "orderNo": "string",
-      "requestNo": "string"
+      "cardCvv": "123",
+      "cardId": "2211...194141",
+      "cardNo": "22292...764",
+      "currency": "USD",
+      "expiryDate": "202511",
+      "orderNo": "221102...0000014",
+      "requestNo": "22110...000050"
     }
 
 <br>
@@ -656,7 +656,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    221020...23123
 
 <br>
 
@@ -709,7 +709,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    221020...3123
 
 <br>
 
@@ -762,7 +762,7 @@ result 解密后内容
 
 result 解密后内容
 
-    221020000012123123
+    221020...123
 
 
 ### 卡片交易明细
@@ -830,20 +830,20 @@ result 解密后内容
 
     [
       {
-        "recordNo": "string",
-        "cardId": "string",
-        "occurTime": "string",
-        "transCurrency": "string",
-        "transCurrencyAmt": "string",
-        "localCurrency": "string",
-        "localCurrencyAmt": "string",
-        "respCode": "string",
-        "respCodeDesc": "string",
-        "approvalCode": "string",
-        "declineReason": "string",
-        "messageType": "string",
-        "messageType": "string",
-        "merchantName": "string"
+        "recordNo": "22110...00000001",
+        "cardId": "221101...00000001",
+        "occurTime": "2022-11-01 14:39:19",
+        "transCurrency": "USD",
+        "transCurrencyAmt": 10.00,
+        "transType": "AUTH",
+        "transStatus": "APPROVED",
+        "localCurrency": "USD",
+        "localCurrencyAmt": 10.00,
+        "crossBoardType": null,
+        "respCode": "000000",
+        "respCodeDesc": "交易成功",
+        "approvalCode": "000000",
+        "merchantName": "xxxxx...xxxxx"
       }
     ]
 
@@ -855,9 +855,9 @@ Result:
 2  | cardId | 卡唯一编号 | String | 必填 |
 3  | occurTime | 交易发生时间 | String | 必填 |
 4  | transCurrency | 交易币种 | String | / |
-5  | transCurrencyAmt | 交易币种金额 | String | 必填 |
+5  | transCurrencyAmt | 交易币种金额 | Number | 必填 |
 6  | localCurrency | 卡本币种 | String | 必填 |
-7  | localCurrencyAmt | 卡本币种金额 | String | 必填 |
+7  | localCurrencyAmt | 卡本币种金额 | Number | 必填 |
 8  | respCode | 交易响应码 | String | 必填 |
 9  | respCodeDesc | 交易响应码描述 | String | 必填 |
 10  | approvalCode | 授权码 | String | / |
@@ -933,16 +933,16 @@ result 解密后内容
 
     [
       {
-        "approvalCode": "string",
-        "billCurrency": "string",
-        "billCurrencyAmt": "string",
-        "cardId": "string",
-        "isCredit": "string",
-        "merchantName": "string",
-        "recordNo": "string",
-        "settleDate": "string",
-        "transCurrency": "string",
-        "transCurrencyAmt": "string"
+        "approvalCode": "000000",
+        "billCurrency": "USD",
+        "billCurrencyAmt": 100.00,
+        "cardId": "22120...0000627",
+        "isCredit": "1",
+        "merchantName": "xxxxxxxxxxxxxxxx",
+        "recordNo": "2212...0000627",
+        "settleDate": "2022-11-01",
+        "transCurrency": "USD",
+        "transCurrencyAmt": 100.00
       }
     ]
 
@@ -954,9 +954,9 @@ Result:
 2  | cardId | 卡唯一编号 | String | 必填 |
 2  | settleDate | 账单日期 | String | 必填 |
 2  | transCurrency | 交易币种 | String | 必填 |
-2  | transCurrencyAmt | 交易金额 | String | 必填 |
+2  | transCurrencyAmt | 交易金额 | Number | 必填 |
 2  | billCurrency | 账单币种 | String | 必填 |
-2  | billCurrencyAmt | 账单金额 | String | 必填 |
+2  | billCurrencyAmt | 账单金额 | Number | 必填 |
 2  | approvalCode | 授权码 | String | / |
 2  | isCredit | 收付标识 | String | 必填 |
 2  | merchantName | 商户名称 | String | 必填 |
@@ -1024,13 +1024,13 @@ result 解密后内容
 
     [
       {
-        "accountId": "1587002211281670144",
+        "accountId": "1587...81670144",
         "accountType": "balance",
         "currency": "USD",
         "balance": 999870.34,
         "availableBal": 999870.34,
         "freezeBal": 0,
-        "customerId": "1587002211214565376",
+        "customerId": "15870...14565376",
         "status": "normal"
       }
     ]
@@ -1059,8 +1059,8 @@ result 解密后内容
 	{
       "custNo": "string",
       "request": {
-        "requestNo": "20221128154500000001",
-        "cardId": "00000000000000000",
+        "requestNo": "20221...00000001",
+        "cardId": "222981...000000",
         "tradeType": "TRADE",
         "amount": 10.00
       },
@@ -1097,7 +1097,7 @@ result 解密后内容
 ----|-----|-----------|--------|------------|-------|
 1  | orderNo | 余额账户编号 | String | 必填 |
 
-   22112815490000001
+   22112...00001
 
 
 <br>
@@ -1122,20 +1122,20 @@ result 解密后内容
 request  (dataType=AUTH) 交易解密后内容
 
     {
-      "recordNo": "string",
-      "cardId": "string",
-      "occurTime": "string",
-      "transCurrency": "string",
-      "transCurrencyAmt": "string",
-      "transType": "string",
-      "transStatus": "string",
-      "localCurrency": "string",
-      "localCurrencyAmt": "string",
-      "crossBoardType": "string",
-      "respCode": "string",
-      "respCodeDesc": "string",
-      "approvalCode": "string",
-      "merchantName": "string"
+      "recordNo": "221101...0000001",
+      "cardId": "2211010...00000001",
+      "occurTime": "2022-11-01 14:39:19",
+      "transCurrency": "USD",
+      "transCurrencyAmt": 10.00,
+      "transType": "AUTH",
+      "transStatus": "APPROVED",
+      "localCurrency": "USD",
+      "localCurrencyAmt": 10.00,
+      "crossBoardType": null,
+      "respCode": "000000",
+      "respCodeDesc": "交易成功",
+      "approvalCode": "000000",
+      "merchantName": "xxxxx...xxxxx"
     }
 
 
@@ -1147,11 +1147,11 @@ Result:
 2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
 3  | settleDate | 账单日期 | String | 必填 | 账单日期
 4  | transCurrency | 交易币种 | String | / | 交易币种
-5  | transCurrencyAmt | 交易金额 | String | 必填 | 交易金额
+5  | transCurrencyAmt | 交易金额 | Number | 必填 | 交易金额
 5  | transType | 交易类型 | String | 必填 | 交易类型:见交易类型列表
 5  | transStatus | 交易状态 | String | 必填 | 交易状态：见交易状态列表
 6  | localCurrency | 卡本位币种 | String | 必填 | 账单币种
-7  | localCurrencyAmt | 卡本位币种金额 | String | 必填 | 账单金额
+7  | localCurrencyAmt | 卡本位币种金额 | Number | 必填 | 账单金额
 8  | crossBoardType | 跨境类型 | String | / | 0 境内；1 境外
 8  | respCode | 交易响应码 | String | 必填 | 交易响应码
 8  | respCodeDesc | 交易响应码描述 | String | 必填 | 交易响应码描述
@@ -1162,16 +1162,16 @@ Result:
 request (dataType=SETTLEMENT) 清算解密后内容
 
     {
-      "recordNo": "string",
-      "cardId": "string",
-      "settleDate": "string",
-      "transCurrency": "string",
-      "transCurrencyAmt": "string",
-      "billCurrency": "string",
-      "billCurrencyAmt": "string",
-      "approvalCode": "string",
-      "isCredit": "string",
-      "merchantName": "string"
+      "recordNo": "221101...000001",
+      "cardId": "221101...000001",
+      "settleDate": "2022-11-02",
+      "transCurrency": "USD",
+      "transCurrencyAmt": 0.00,
+      "billCurrency": "USD",
+      "billCurrencyAmt": 0.00,
+      "approvalCode": "000000",
+      "isCredit": "1",
+      "merchantName": "xxxxxxxx"
     }
 
 
@@ -1181,31 +1181,28 @@ Result:
 ----|-----|-----------|--------|------------|-------|
 1  | recordNo | 记录编号 | String | 必填 |
 2  | cardId | 卡唯一编号 | String | 必填 |
-3  | occurTime | 交易发生时间 | String | 必填 |
-4  | transCurrency | 交易币种 | String | / |
-5  | transCurrencyAmt | 交易币种金额 | String | 必填 |
-6  | localCurrency | 卡本币种 | String | 必填 |
-7  | localCurrencyAmt | 卡本币种金额 | String | 必填 |
-8  | respCode | 交易响应码 | String | 必填 |
-9  | respCodeDesc | 交易响应码描述 | String | 必填 |
-10  | approvalCode | 授权码 | String | / |
-11 | declineReason | 交易拒绝原因 | String | / | 
-12  | messageType | 交易类型 | String | 必填 | 废弃
-13  | messageTypeDesc | 交易类型描述 | String | 必填 | 废弃
-14  | merchantName | 商户名称 | String | 必填 |
+3  | settleDate | 账单日期 | String | 必填 |
+4  | transCurrency | 交易币种 | String | 必填 |
+5  | transCurrencyAmt | 交易币种金额 | Number | 必填 |
+6  | billCurrency | 账单币种 | String | 必填 |
+7  | billCurrencyAmt | 账单金额 | Number | 必填 |
+8  | approvalCode | 授权码 | String | 必填 |
+9  | isCredit | 收付标志 | String | 必填 | 1:收(退款)  0:付(消费)
+10  | merchantName | 授权码 | String | / |
+
 <br>
 
 request  (dataType=TYPE_CARD_OPERATE) 卡操作（目前只有被动销卡）
 
     {
-      "orderId": "22281643123123123132123",
-      "cardId": "31276544435332312312",
-      "userReqNo": "12476544435332312312",
-      "opType": "0",
-      "status": "2",
-      "statusDesc": "string",
-      "amount": "100.00",
-      "fee": "1.00",
+      "orderId": "22281...23132123",
+      "cardId": "312765...312312",
+      "userReqNo": "124765...2312312",
+      "opType": 0,
+      "status": 2,
+      "statusDesc": "成功",
+      "amount": 100.00,
+      "fee": "0.00",
       "createAt": "2022-11-29 12:00:00",
     }
 
@@ -1220,8 +1217,8 @@ Result:
 4  | opType | 订单类型 | int | 必填 | 0-销卡
 5  | status | 状态 | int | 必填 | 状态：0待处理 1处理中 2 成功  3失败
 6  | statusDesc | 状态描述 | String | 必填 | 状态描述
-7  | amount | 订单金额 | String | 必填 | 销卡金额
-8  | fee | 手续费 | String | 必填 | 订单对应的手续费
+7  | amount | 订单金额 | Number | 必填 | 销卡金额
+8  | fee | 手续费 | Number | 必填 | 订单对应的手续费
 9  | createAt | 创建时间 | String | 必填 | 创建的时间，格式yyyy-MM-dd HH :mm:ss
 
 <br>
@@ -1241,9 +1238,6 @@ CAD | 加元
 HKD | 港币
 USD | 美元
 
-<br>
-<br>
-<br>
 <br>
 
 ## 交易类型
