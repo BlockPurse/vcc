@@ -1246,58 +1246,6 @@ USD | 美元
 <br>
 <br>
 
-### 工具类
-
-<br>
-
-#### Maven import：
-
-	<dependency>
-		<groupId>cn.hutool</groupId>
-		<artifactId>hutool-all</artifactId>
-		<version>5.8.4</version>
-	</dependency>
-
-<br>
-
-#### Java Class
-
-	import cn.hutool.core.codec.Base64;
-	import cn.hutool.core.util.CharsetUtil;
-	import cn.hutool.core.util.HexUtil;
-	import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
-	import cn.hutool.crypto.symmetric.SymmetricCrypto;
-	
-	public class AesUtils {
-	
-	    public static String encode(String data, String apiKey) {
-	        SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, HexUtil.decodeHex(apiKey));
-	        return aes.encryptHex(Base64.encode(data),CharsetUtil.CHARSET_UTF_8);
-	    }
-	
-	    public static String decode(String encodeData, String apiKey) {
-	        SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, HexUtil.decodeHex(apiKey));
-	        return Base64.decodeStr(aes.decryptStr(encodeData,CharsetUtil.CHARSET_UTF_8));
-	    }
-	
-	    public static void main(String[] args) {
-	
-	        String apiKey = "a2450a85a4b00b626ed94490101a8613";
-	
-	        String data = "requestNo=123&currency=USD&limitAmount=100&cardType=NORMAL";
-	
-	        System.out.println("原文：" + data);
-	        String encodeData = encode(data, apiKey);
-	        System.out.println("加密后：" + encodeData);
-	
-	        String decodeData = decode(encodeData, apiKey);
-	        System.out.println("解密后：" + decodeData);
-	
-	        System.out.println("解密后与原文比较：" + data.equals(decodeData));
-	    }
-	
-	}
-
 ## 交易类型
 
 交易类型 | 中文描述| 英文描述
@@ -1365,3 +1313,55 @@ REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, p
 BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求|If the request IP is not allowed, please use the preset export IP to initiate the request
 ERROR_ENV|该操作只允许在测试环境执行|If the request IP is not allowed, please use the preset export IP to initiate the request
 SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later
+
+### 工具类
+
+<br>
+
+#### Maven import：
+
+	<dependency>
+		<groupId>cn.hutool</groupId>
+		<artifactId>hutool-all</artifactId>
+		<version>5.8.4</version>
+	</dependency>
+
+<br>
+
+#### Java Class
+
+	import cn.hutool.core.codec.Base64;
+	import cn.hutool.core.util.CharsetUtil;
+	import cn.hutool.core.util.HexUtil;
+	import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
+	import cn.hutool.crypto.symmetric.SymmetricCrypto;
+	
+	public class AesUtils {
+	
+	    public static String encode(String data, String apiKey) {
+	        SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, HexUtil.decodeHex(apiKey));
+	        return aes.encryptHex(Base64.encode(data),CharsetUtil.CHARSET_UTF_8);
+	    }
+	
+	    public static String decode(String encodeData, String apiKey) {
+	        SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, HexUtil.decodeHex(apiKey));
+	        return Base64.decodeStr(aes.decryptStr(encodeData,CharsetUtil.CHARSET_UTF_8));
+	    }
+	
+	    public static void main(String[] args) {
+	
+	        String apiKey = "a2450a85a4b00b626ed94490101a8613";
+	
+	        String data = "requestNo=123&currency=USD&limitAmount=100&cardType=NORMAL";
+	
+	        System.out.println("原文：" + data);
+	        String encodeData = encode(data, apiKey);
+	        System.out.println("加密后：" + encodeData);
+	
+	        String decodeData = decode(encodeData, apiKey);
+	        System.out.println("解密后：" + decodeData);
+	
+	        System.out.println("解密后与原文比较：" + data.equals(decodeData));
+	    }
+	
+	}
