@@ -77,7 +77,7 @@
 	
 	第一步、明文拼接相关字段字符串，如：
 	
-	"requestNo= 2022...18240002&currency=USD&limitAmount=100&cardType=NORMAL"
+	"requestNo=2022...18240002&currency=USD&limitAmount=100&cardType=NORMAL"
 	
 	第二步、使用Base64对字符串进行Encode，得到待加密字符串。
 	
