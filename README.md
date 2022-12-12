@@ -794,7 +794,7 @@ result 解密后内容
         "pageSize": 50
       },
       "verify": "234rfre43...u763ewdft"
-  }
+    }
 
 #### 待签名字符串
 
@@ -897,7 +897,7 @@ Result:
         "pageSize": 20
       },
       "verify": "234rfre43...u763ewdft"
-}
+    }
 
 #### 待签名字符串
 
@@ -1077,7 +1077,7 @@ result 解密后内容
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  |  result | 平台订单加密串 | String | 必填 |
+1  |  result | 平台订单号加密串 | String | 必填 |
 
 
 #### 响应示例
@@ -1088,6 +1088,7 @@ result 解密后内容
       "errorCode": null,
       "errorMsg": null
     }
+
 <br>
 
 result 解密后内容
@@ -1095,7 +1096,7 @@ result 解密后内容
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderNo | 余额账户编号 | String | 必填 |
+1  | orderNo | 平台订单号 | String | 必填 |
 
    22112...00001
 
@@ -1145,18 +1146,18 @@ Result:
 ----|-----|-----------|--------|------------|-------|
 1  | recordNo | 记录编号 | String | 必填 | 记录编号
 2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
-3  | settleDate | 账单日期 | String | 必填 | 账单日期
+3  | occurTime | 交易时间 | String | 必填 | 交易时间
 4  | transCurrency | 交易币种 | String | / | 交易币种
 5  | transCurrencyAmt | 交易金额 | Number | 必填 | 交易金额
-5  | transType | 交易类型 | String | 必填 | 交易类型: 见交易类型列表
-5  | transStatus | 交易状态 | String | 必填 | 交易状态: 见交易状态列表
-6  | localCurrency | 卡本位币种 | String | 必填 | 账单币种
-7  | localCurrencyAmt | 卡本位币种金额 | Number | 必填 | 账单金额
-8  | crossBoardType | 跨境类型 | String | / | 0 境内；1 境外
-8  | respCode | 交易响应码 | String | 必填 | 交易响应码
-8  | respCodeDesc | 交易响应码描述 | String | 必填 | 交易响应码描述
-8  | approvalCode | 授权码 | String | / | 授权码
-10 | merchantName | 商户名称 | String | / | 商户名称
+6  | transType | 交易类型 | String | 必填 | 交易类型: 见交易类型列表
+7  | transStatus | 交易状态 | String | 必填 | 交易状态: 见交易状态列表
+8  | localCurrency | 卡本位币种 | String | 必填 | 账单币种
+9  | localCurrencyAmt | 卡本位币种金额 | Number | 必填 | 账单金额
+10  | crossBoardType | 跨境类型 | String | / | 0 境内；1 境外
+11  | respCode | 交易响应码 | String | 必填 | 交易响应码
+12  | respCodeDesc | 交易响应码描述 | String | 必填 | 交易响应码描述
+13  | approvalCode | 授权码 | String | / | 授权码
+14 | merchantName | 商户名称 | String | / | 商户名称
 
 
 request (dataType=SETTLEMENT) 清算解密后内容
@@ -1215,11 +1216,11 @@ Result:
 2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
 3  | userReqNo | 请求流水号 | String | 必填 | 客户上送的请求流水号
 4  | opType | 订单类型 | int | 必填 | 0-销卡
-5  | status | 状态 | int | 必填 | 状态：0待处理 1处理中 2 成功  3失败
+5  | status | 状态 | int | 必填 | 状态：0 - 待处理；1 - 处理中；2 - 成功；3 - 失败；
 6  | statusDesc | 状态描述 | String | 必填 | 状态描述
 7  | amount | 订单金额 | Number | 必填 | 销卡金额
 8  | fee | 手续费 | Number | 必填 | 订单对应的手续费
-9  | createAt | 创建时间 | String | 必填 | 创建的时间，格式yyyy-MM-dd HH :mm:ss
+9  | createAt | 创建时间 | String | 必填 | 创建的时间，格式：yyy-MM-dd HH:mm:ss
 
 <br>
 
@@ -1314,11 +1315,11 @@ SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again
 
 #### Maven import：
 
-	<dependency>
-		<groupId>cn.hutool</groupId>
-		<artifactId>hutool-all</artifactId>
-		<version>5.8.4</version>
-	</dependency>
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.8.4</version>
+    </dependency>
 
 <br>
 
