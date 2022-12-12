@@ -818,7 +818,7 @@ result 解密后内容
       "errorCode":  null,
       "errorMsg": null,
       "result": {
-        "list": ""
+        "list": "234rfre43...u763ewdft",
         "currentPage": 1,
         "pageSize": 50,
         "pageSize": 50
@@ -826,7 +826,7 @@ result 解密后内容
       "success": true
     }
 
-result 解密后内容
+list 解密后内容
 
     [
       {
@@ -921,7 +921,7 @@ Result:
       "errorCode":  null,
       "errorMsg": null,
       "result": {
-        "list": "234rfre43...u763ewdft"
+        "list": "234rfre43...u763ewdft",
         "currentPage": 1,
         "pageSize": 50,
         "totalCount": 500
