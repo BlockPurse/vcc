@@ -1148,7 +1148,7 @@ Result:
 3  | settleDate | 账单日期 | String | 必填 | 账单日期
 4  | transCurrency | 交易币种 | String | / | 交易币种
 5  | transCurrencyAmt | 交易金额 | Number | 必填 | 交易金额
-5  | transType | 交易类型 | String | 必填 | 交易类型:见交易类型列表
+5  | transType | 交易类型 | String | 必填 | 交易类型: 见交易类型列表
 5  | transStatus | 交易状态 | String | 必填 | 交易状态：见交易状态列表
 6  | localCurrency | 卡本位币种 | String | 必填 | 账单币种
 7  | localCurrencyAmt | 卡本位币种金额 | Number | 必填 | 账单金额
