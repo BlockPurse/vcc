@@ -1125,14 +1125,14 @@ request  (dataType=AUTH) 交易解密后内容
       "occurTime": "string",
       "transCurrency": "string",
       "transCurrencyAmt": "string",
+      "transType": "string",
+      "transStatus": "string",
       "localCurrency": "string",
       "localCurrencyAmt": "string",
+      "crossBoardType": "string",
       "respCode": "string",
       "respCodeDesc": "string",
       "approvalCode": "string",
-      "declineReason": "string",
-      "messageType": "string",
-      "messageType": "string",
       "merchantName": "string"
     }
 
@@ -1146,10 +1146,14 @@ Result:
 3  | settleDate | 账单日期 | String | 必填 | 账单日期
 4  | transCurrency | 交易币种 | String | / | 交易币种
 5  | transCurrencyAmt | 交易金额 | String | 必填 | 交易金额
-6  | billCurrency | 账单币种 | String | 必填 | 账单币种
-7  | billCurrencyAmt | 账单金额 | String | 必填 | 账单金额
-8  | approvalCode | 授权码 | String | 必填 | 授权码
-9  | isCredit | 收付标志 | String | 必填 | 收付标志
+5  | transType | 交易类型 | String | 必填 | 交易类型:见交易类型列表
+5  | transStatus | 交易状态 | String | 必填 | 交易状态：见交易状态列表
+6  | localCurrency | 卡本位币种 | String | 必填 | 账单币种
+7  | localCurrencyAmt | 卡本位币种金额 | String | 必填 | 账单金额
+8  | crossBoardType | 跨境类型 | String | / | 0 境内；1 境外
+8  | respCode | 交易响应码 | String | 必填 | 交易响应码
+8  | respCodeDesc | 交易响应码描述 | String | 必填 | 交易响应码描述
+8  | approvalCode | 授权码 | String | / | 授权码
 10 | merchantName | 商户名称 | String | / | 商户名称
 
 
@@ -1183,9 +1187,9 @@ Result:
 8  | respCode | 交易响应码 | String | 必填 |
 9  | respCodeDesc | 交易响应码描述 | String | 必填 |
 10  | approvalCode | 授权码 | String | / |
-11 | declineReason | 交易拒绝原因 | String | / |
-12  | messageType | 交易类型 | String | 必填 |
-13  | messageTypeDesc | 交易类型描述 | String | 必填 |
+11 | declineReason | 交易拒绝原因 | String | / | 
+12  | messageType | 交易类型 | String | 必填 | 废弃
+13  | messageTypeDesc | 交易类型描述 | String | 必填 | 废弃
 14  | merchantName | 商户名称 | String | 必填 |
 <br>
 
@@ -1291,6 +1295,29 @@ USD | 美元
 	    }
 	
 	}
+
+## 交易类型
+
+交易类型 | 中文描述| 英文描述
+----|-----|----|
+AUTH | 消费 | AUTH |
+REVERSAL | 冲正 | REVERSAL |
+REFUND | 退款 | REFUND |
+FEE | 手续费 | FEE |
+FEE_REVERSAL | 手续费冲正 | FEE REVERSAL |
+ORIGINAL_CREDIT | OCT退款 | ORIGINAL CREDIT |
+ORIGINAL_CREDIT_REVERSAL | OCT退款冲正 | ORIGINAL CREDIT REVERSAL |
+
+<br>
+
+## 交易状态
+
+交易状态 | 中文描述| 英文描述
+----|-----|----|
+APPROVED | 消费 | APPROVED |
+DECLINED | 拒绝 | DECLINED |
+
+<br>
 
 
 ## 错误码
