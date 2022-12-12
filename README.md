@@ -65,7 +65,7 @@
 	{
       "custNo": "客户编号（平台开户成功返回的客户编号），必填",
       "request": 接口具体请求参数（泛型）
-      "verify": "7iu23kj ...... ew3i2o4r" 签名串
+      "verify": "234rfre43...u763ewdft" 签名串
 	}
 
 
@@ -129,7 +129,7 @@
         "requestNo": "20222...240002",
         "startDate": "2022-10-26"
       },
-      "verify": "234rfre432wefgyu763ewdft"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 
@@ -165,12 +165,12 @@ result 解密后格式
 
     {
       "cardCvv": "123",
-      "cardId": "2211...194141",
+      "cardId": "221...0000001",
       "cardNo": "22292...764",
       "currency": "USD",
       "expiryDate": "202511",
       "orderNo": "221102...0000014",
-      "requestNo": "22110...000050"
+      "requestNo": "20222...240002"
     }
 <br>
 
@@ -192,9 +192,9 @@ result 解密后格式
 	{
       "custNo": "15851...276017664",
       "request": {
-        "cardId": "522981"
+        "cardId": "221...0000001"
       },
-      "verify": "234rfre432wefgyu763ewdft"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -234,7 +234,7 @@ result 解密后格式
 	{
       "errorCode": null,
       "errorMsg": null,
-      "result": "23e9roifkjehyu......er8r9o3kjerufre3o",
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}	
 
@@ -246,12 +246,12 @@ result 解密后格式
       "balance": 10000.00,
       "cardCvv": "123",
       "cardId": "221...0000001",
-      "cardNo": "22103...0000001",
+      "cardNo": "22292...764",
       "cardType": "NORMAL",
       "currency": "USD",
       "currencyCheck": "YES",
       "customerId": "1587...000000001",
-      "expiryDate": "202211",
+      "expiryDate": "202511",
       "label": "测试卡",
       "limitAmount": 10000.00,
       "maxAmt": 10000.00,
@@ -281,7 +281,7 @@ result 解密后格式
 #### 请求示例
 	{
       "custNo": "15851999...76017664",
-      "verify": "234rfre432wefgyu763ewdft"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -303,7 +303,7 @@ result 解密后格式
 	{
       "errorCode": null,
       "errorMsg": null,
-      "result": "23e9roifkjehyu......er8r9o3kjerufre3o",
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}	
 
@@ -334,11 +334,11 @@ result 解密后格式
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "cardId": "string",
+        "cardId": "221...0000001",
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -358,9 +358,9 @@ result 解密后格式
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -392,13 +392,13 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "amount": 0,
-        "cardId": "string",
-        "requestNo": "string"
+        "amount": 100.00,
+        "cardId": "221...0000001",
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -417,9 +417,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "78ikejr........fhr3iekj",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -448,13 +448,13 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "amount": 0,
-        "cardId": "string",
-        "requestNo": "string"
+        "amount": 100.00,
+        "cardId": "221...0000001",
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -473,9 +473,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "fe3456yhgfre56uhgfe45678ijhgfew3",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -504,12 +504,12 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "cardId": "string",
-        "requestNo": "string"
+        "cardId": "221...0000001",
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -528,9 +528,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -558,11 +558,11 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "requestNo": "string"
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -597,12 +597,12 @@ result 解密后内容
 
     {
       "cardCvv": "123",
-      "cardId": "2211...194141",
+      "cardId": "221...0000001",
       "cardNo": "22292...764",
       "currency": "USD",
       "expiryDate": "202511",
       "orderNo": "221102...0000014",
-      "requestNo": "22110...000050"
+      "requestNo": "20222...240002"
     }
 
 <br>
@@ -624,11 +624,11 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "requestNo": "string"
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -647,9 +647,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -677,11 +677,11 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "requestNo": "string"
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -700,9 +700,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -730,11 +730,11 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "requestNo": "string"
+        "requestNo": "20222...240002"
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -753,9 +753,9 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
-      "result": "345yhgfdr65789ikjfder567890okjhgfe",
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "success": true
 	}
 
@@ -785,15 +785,15 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-      "beginTime": "string",
-      "cardId": "string",
-      "currentPage": 0,
-      "endTime": "string",
-      "pageSize": 0
+        "beginTime": "2022-01-01",
+        "cardId": "221...0000001",
+        "currentPage": 1,
+        "endTime": "2022-01-02",
+        "pageSize": 50
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
   }
 
 #### 待签名字符串
@@ -815,13 +815,13 @@ result 解密后内容
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
+      "errorCode":  null,
+      "errorMsg": null,
       "result": {
         "list": ""
-        "currentPage": 0,
-        "pageSize": 0,
-        "totalCount": 0
+        "currentPage": 1,
+        "pageSize": 50,
+        "pageSize": 50
       },
       "success": true
     }
@@ -831,7 +831,7 @@ result 解密后内容
     [
       {
         "recordNo": "22110...00000001",
-        "cardId": "221101...00000001",
+        "cardId": "221...0000001",
         "occurTime": "2022-11-01 14:39:19",
         "transCurrency": "USD",
         "transCurrencyAmt": 10.00,
@@ -888,15 +888,15 @@ Result:
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-      "beginTime": "string",
-      "cardId": "string",
-      "currentPage": 0,
-      "endTime": "string",
-      "pageSize": 0
+        "beginTime": "2022-01-01",
+        "cardId": "221...0000001",
+        "currentPage": 1,
+        "endTime": "2022-01-02",
+        "pageSize": 20
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 }
 
 #### 待签名字符串
@@ -918,25 +918,25 @@ Result:
 #### 响应示例
 
 	{
-      "errorCode": "string",
-      "errorMsg": "string",
+      "errorCode":  null,
+      "errorMsg": null,
       "result": {
-        "list": ""
-        "currentPage": 0,
-        "pageSize": 0,
-        "totalCount": 0
+        "list": "234rfre43...u763ewdft"
+        "currentPage": 1,
+        "pageSize": 50,
+        "totalCount": 500
       },
       "success": true
     }
 
-result 解密后内容
+list 解密后内容
 
     [
       {
         "approvalCode": "000000",
         "billCurrency": "USD",
         "billCurrencyAmt": 100.00,
-        "cardId": "22120...0000627",
+        "cardId": "221...0000001",
         "isCredit": "1",
         "merchantName": "xxxxxxxxxxxxxxxx",
         "recordNo": "2212...0000627",
@@ -978,11 +978,11 @@ Result:
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
         "currency": "USD",
       },
-      "verify": "string"
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -1002,7 +1002,7 @@ Result:
 
     {
       "success": true,
-      "result": nbhgYUnBGYumn...bgYUIKM,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "errorCode": null,
       "errorMsg": null
     }
@@ -1057,14 +1057,14 @@ result 解密后内容
 #### 请求示例
 
 	{
-      "custNo": "string",
+      "custNo": "158519...017664",
       "request": {
-        "requestNo": "20221...00000001",
-        "cardId": "222981...000000",
+        "requestNo": "20222...240002",
+        "cardId": "221...0000001",
         "tradeType": "TRADE",
-        "amount": 10.00
+        "amount": 100.00
       },
-      "verify": "asdfwefdw34567........56ygffw3334r5t";
+      "verify": "234rfre43...u763ewdft"
 	}
 
 #### 待签名字符串
@@ -1084,7 +1084,7 @@ result 解密后内容
 
     {
       "success": true,
-      "result": nbhgYUnBGYumn...bgYUIKM,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
       "errorCode": null,
       "errorMsg": null
     }
@@ -1123,7 +1123,7 @@ request  (dataType=AUTH) 交易解密后内容
 
     {
       "recordNo": "221101...0000001",
-      "cardId": "2211010...00000001",
+      "cardId": "221...0000001",
       "occurTime": "2022-11-01 14:39:19",
       "transCurrency": "USD",
       "transCurrencyAmt": 10.00,
@@ -1163,7 +1163,7 @@ request (dataType=SETTLEMENT) 清算解密后内容
 
     {
       "recordNo": "221101...000001",
-      "cardId": "221101...000001",
+      "cardId": "221...0000001",
       "settleDate": "2022-11-02",
       "transCurrency": "USD",
       "transCurrencyAmt": 0.00,
@@ -1196,7 +1196,7 @@ request  (dataType=TYPE_CARD_OPERATE) 卡操作（目前只有被动销卡）
 
     {
       "orderId": "22281...23132123",
-      "cardId": "312765...312312",
+      "cardId": "221...0000001",
       "userReqNo": "124765...2312312",
       "opType": 0,
       "status": 2,
