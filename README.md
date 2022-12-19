@@ -19,6 +19,7 @@
   - 卡片充值
   - 卡片退款
   - 销卡
+  - 查询卡片订单信息(12-19新增)
   - 查询开卡结果
   - 查询充值结果
   - 查询退款结果
@@ -95,7 +96,7 @@
 ### 开卡申请
 
 ### URL 
-/api/v1.0/cardOperate/apply
+/api/v1.0/card/apply
 <br>
 
 #### 请求参数
@@ -179,7 +180,7 @@ result 解密后格式
 <br>
 
 ### URL
-/api/v1.0/cardOperate/info
+/api/v1.0/card/info
 
 #### 请求参数
 
@@ -269,7 +270,7 @@ result 解密后格式
 <br>
 
 ### URL
-/api/v1.0/cardOperate/cardBins
+/api/v1.0/card/cardBins
 
 #### 请求参数
 
@@ -323,7 +324,7 @@ result 解密后格式
 <br>
 
 ### URL
-/api/v1.0/cardOperate/cardImg
+/api/v1.0/card/cardImg
 
 #### 请求参数
 
@@ -379,7 +380,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/recharge
+/api/v1.0/card/recharge
 
 #### 请求参数
 
@@ -435,7 +436,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/refund
+/api/v1.0/card/refund
 
 #### 请求参数
 
@@ -490,7 +491,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/close
+/api/v1.0/card/close
 
 #### 请求参数
 
@@ -546,7 +547,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/getApplyInfo
+/api/v1.0/card/getApplyInfo
 
 #### 请求参数
 
@@ -604,6 +605,75 @@ result 解密后内容
       "orderNo": "221102...0000014",
       "requestNo": "20222...240002"
     }
+<br>
+
+### 查询卡片订单信息(12-19新增)
+
+<br>
+
+### URL
+/api/v1.0/card/getOrderInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+
+
+#### 请求示例
+
+	{
+      "custNo": "158519...017664",
+      "request": {
+        "requestNo": "20222...240002"
+      },
+      "verify": "234rfre43...u763ewdft"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String | 必填 |
+2  | orderNo | 平台订单号 | String | 必填 |
+3  | customerId | 客户编号 | String | 必填 |
+4  | cardId | 卡编号 | String | / |
+5  | cardNo | 卡号 | String | / |
+6  | orderType | 订单类型 | String | 必填 |
+7  | orderDate | 订单日期 | Date | 必填 |
+8  | orderAmount | 订单金额 | Number | 必填 |
+9  | orderStatus | 订单状态 | String | 必填 |
+
+#### 响应示例
+
+    {
+      "errorCode": null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
+      "success": true
+    }
+
+
+result 解密后内容
+
+    {
+      "requestNo": "221...0000001",
+      "orderNo": "221...0000001",
+      "customerId": "221...0000001",
+      "cardId": "221...0000001",
+      "cardNo": "22292...764",
+      "orderType": "CARD_APPLY",
+      "orderDate": "yy...",
+      "orderAmount": 100.00,
+      "orderStatus": "SUCCESS"
+    }
 
 <br>
 
@@ -612,7 +682,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/getRechargeInfo
+/api/v1.0/card/getRechargeInfo
 
 #### 请求参数
 
@@ -665,7 +735,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/getRefundInfo
+/api/v1.0/card/getRefundInfo
 
 #### 请求参数
 
@@ -718,7 +788,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/getCloseInfo
+/api/v1.0/card/getCloseInfo
 
 #### 请求参数
 
@@ -770,7 +840,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/trades
+/api/v1.0/card/trades
 
 #### 请求参数
 
@@ -873,7 +943,7 @@ Result:
 <br>
 
 ### URL
-/api/v1.0/cardOperate/settlements
+/api/v1.0/card/settlements
 
 #### 请求参数
 
@@ -1043,7 +1113,7 @@ result 解密后内容
 <br>
 
 ### URL
-/api/v1.0/cardOperate/test/trade
+/api/v1.0/card/test/trade
 
 #### 请求参数
 
@@ -1245,7 +1315,8 @@ USD | 美元
 
 交易类型 | 中文描述| 英文描述
 ----|-----|----|
-AUTH | 消费 | AUTH |
+AUTH | 授权.消费 | AUTH |
+AUTH_QUERY | 授权.查询 | AUTH QUERY(12-19新增) | 
 REVERSAL | 冲正 | REVERSAL |
 REFUND | 退款 | REFUND |
 FEE | 手续费 | FEE |
