@@ -95,7 +95,7 @@
 
 ### 开卡申请
 
-### URL 
+### URL
 /api/v1.0/card/apply
 <br>
 
@@ -240,7 +240,7 @@ result 解密后格式
 	}	
 
 result 解密后格式
-  
+
     {
       "activeDate": "2022-11-01",
       "alias": "测试卡",
@@ -499,7 +499,7 @@ result 解密后内容
 ----|-----|-----------|--------|------------|-------|
 1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
 2  | cardId | 卡编号 | String(32) | 必填 | 开卡申请接口返回的卡编号
-·  
+·
 
 
 #### 请求示例
@@ -1168,7 +1168,7 @@ result 解密后内容
 ----|-----|-----------|--------|------------|-------|
 1  | orderNo | 平台订单号 | String | 必填 |
 
-   22112...00001
+22112...00001
 
 
 <br>
@@ -1335,6 +1335,17 @@ DECLINED | 拒绝 | DECLINED |
 
 <br>
 
+## 订单状态 (12-19新增)
+
+订单状态 | 中文描述| 英文描述
+----|-----|----|
+INIT | 初始 | INIT |
+SUCCESS | 成功 | SUCCESS |
+FAILED | 失败 | FAILED |
+UNKNOWN | 未知 | UNKNOWN |
+
+<br>
+
 
 ## 错误码
 
@@ -1375,6 +1386,7 @@ DATABASE_ERROR|系统繁忙，请稍后再试|The system is busy, please try aga
 BILLING_ERROR|计费规则未配置|Unschere
 CARD_CONFIG_ERROR|卡规则未配置|Card rules are not configured
 BIZ_ERROR|业务异常|Business abnormalities
+BIZ_STATUS_ERROR|订单状态未知，稍后重新查询订单状态 (12-19新增)|The order status is unknown. Query the order info again later please
 REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, please try it later
 BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求|If the request IP is not allowed, please use the preset export IP to initiate the request
 ERROR_ENV|该操作只允许在测试环境执行|If the request IP is not allowed, please use the preset export IP to initiate the request
