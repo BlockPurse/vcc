@@ -14,7 +14,7 @@
 * API 接口
   - 开卡申请
   - 卡信息查询
-  - 卡头列表查询
+  - 卡头列表查询(12-22修改)
   - 卡图信息查询
   - 卡片充值
   - 卡片退款
@@ -265,7 +265,7 @@ result 解密后格式
 
 <br>
 
-### 卡头列表查询
+### 卡头列表查询(12-22修改)
 
 <br>
 
@@ -295,7 +295,14 @@ result 解密后格式
 
 <br>
 
-6位卡头列表
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | cardBin | 卡头信息 | String | 必填 |
+2  | cardType | 卡类型| String | 必填 |
+3  | supportCcy | 卡币种 | String | 必填 |
+4  | status | 状态 | String | 必填 |
+5  | enDesc | 描述 | String | / |
+6  | remark | 描述 | String | / |
 
 <br>
 
@@ -311,10 +318,14 @@ result 解密后格式
 result 解密后格式
 
     [
-      "123321",
-      "234432",
-       ...
-      "989809"
+      {
+        "cardBin": "222222",
+        "cardType": "visa",
+        "supportCcy": "USD",
+        "status": "yes",
+        "enDesc": "U.S. Visa/Amazon, eBay, Alibaba, Wal-Mart and other platforms/FB advertisements/site building tools and other payment/image processing software payment, etc. /Malicious refunds and empty card consumption are prohibited, and violators are severely punished.",
+        "remark": "美国Visa/亚马逊、eBay、Alibaba、沃尔玛等平台海淘/FB投放广告/建站工具等付费/图片处理软件付费等，禁止恶意退款和空卡消费，违规者严重处理",
+      }
     ]
 
 <br>
