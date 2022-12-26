@@ -657,10 +657,10 @@ result 解密后内容
 3  | customerId | 客户编号 | String | 必填 |
 4  | cardId | 卡编号 | String | / |
 5  | cardNo | 卡号 | String | / |
-6  | orderType | 订单类型 | String | 必填 |
+6  | orderType | 订单类型 | String | 必填 | 见附录：订单类型
 7  | orderDate | 订单日期 | Date | 必填 |
 8  | orderAmount | 订单金额 | Number | 必填 |
-9  | orderStatus | 订单状态 | String | 必填 |
+9  | orderStatus | 订单状态 | String | 必填 | 见附录：订单状态
 
 #### 响应示例
 
@@ -1345,6 +1345,15 @@ APPROVED | 消费 | APPROVED |
 DECLINED | 拒绝 | DECLINED |
 
 <br>
+
+## 订单类型 (12-19新增)
+
+订单类型 | 中文描述| 英文描述
+----|-----|----|
+CARD_APPLY | 开卡 | CARD APPLY |
+CARD_RECHARGE | 卡充值 | CARD RECHARGE |
+CARD_REFUND | 卡退款 | CARD REFUND |
+CARD_CLOSE | 销卡 | CARD CLOSE |
 
 ## 订单状态 (12-19新增)
 
