@@ -566,7 +566,7 @@ result 解密后内容
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
 1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
-2  | orderType | 订单类型 | String(32) | 必填 | CARD_APPLY-开卡；CARD_RECHARGE-卡充值；CARD_REFUND-卡退款；CARD_CLOSE-销卡；CARD_REFUND-卡退款
+2  | orderType | 订单类型 | String(32) | 必填 | CARD_APPLY-开卡；CARD_RECHARGE-卡充值；CARD_REFUND-卡退款；CARD_CLOSE-销卡；
 
 
 #### 请求示例
@@ -632,7 +632,7 @@ result 解密后内容
 
 <br>
 
-### 查詢开卡结果（即将废弃）
+### 查詢开卡结果（即将废弃）（即将废弃）
 
 <br>
 
