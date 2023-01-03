@@ -1377,7 +1377,7 @@ SIGN_VERIFY_FAIL|签名验证不通过|Signature verification is not approved
 AUTHORIZATION_FAILED|权限校验失败|Permanent verification failed
 LACK_BALANCE|余额不足|Insufficient balance
 ACCOUNT_NOTFOUND|账户不存在|Account does not exist
-CUSTOMER_NOTFOUND|客户不存在|Customers do not exist
+CUSTOMER_NOTFOUND|客户不存在|Customers does not exist
 ORDER_NOTFOUND|订单不存在|The order does not exist
 CARD_NOT_FUND|卡片不存在|Card does not exist
 BELOW_MINI_LIMIT|交易金额低于最小限定值|The transaction amount is lower than the minimum limited value
