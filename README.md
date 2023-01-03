@@ -1371,45 +1371,23 @@ UNKNOWN | 未知 | UNKNOWN |
 
 错误码| 中文描述| 英文描述
 ----|-----|----|
-MAIL_REGISTERED | 邮箱地址已注册 | The mailbox address has been registered
-PHONE_REGISTERED|手机号已注册|Mobile phone number has been registered
-LOGIN_ERROR|登录信息不存在或不正确|Login information does not exist or incorrect
-TOKEN_EXPIRED|登录失效|Login failure
-AUTHORIZATION_FAILED|权限校验失败|Permanent verification failed
-OPERATION_NOT_ALLOW|不允许的操作|Operations that are not allowed
-AUTH_ERROR|授权失败|Authorization failure
-CAPTCHA_BUSY|验证码获取频繁，请稍后再试|The verification code is frequently obtained, please try again later
-CAPTCHA_ERROR|验证码已过期或不正确|The verification code has expired or incorrect
-ERROR_COUNTRY|不支持的国家或地区|Unwilling countries or regions
+INVALID_PARAM|参数校验错误|Parameter test error
+REQUEST_REPEAT|重复的请求|Repeated request
 SIGN_VERIFY_FAIL|签名验证不通过|Signature verification is not approved
+AUTHORIZATION_FAILED|权限校验失败|Permanent verification failed
 LACK_BALANCE|余额不足|Insufficient balance
-EMPTY_PARAM|请求参数为空|The request parameter is blank
 ACCOUNT_NOTFOUND|账户不存在|Account does not exist
 CUSTOMER_NOTFOUND|客户不存在|Customers do not exist
 ORDER_NOTFOUND|订单不存在|The order does not exist
-KEY_NOT_CONFIG|密钥未配置|The key is not configured
-BELOW_MINI_LIMIT|交易金额低于最小限定值|The transaction amount is lower than the minimum limited value
-INVALID_CHAIN_ID|无效的网络ID|Infernal network ID
-NETWORK_ERROR|网络连接异常|Network connection abnormal
 CARD_NOT_FUND|卡片不存在|Card does not exist
-RECORD_NOT_FUND|记录不存在|Record does not exist
+BELOW_MINI_LIMIT|交易金额低于最小限定值|The transaction amount is lower than the minimum limited value
 CARD_LACK_BALANCE|卡片余额不足|Card Insufficient balance
-REQUEST_FAILED|请求失败|Request failed
-REQUEST_REPEAT|重复的请求|Repeated request
-SIGNATURE_FAILED|签名校验失败|Signature verification failed
 INVALID_CURRENCY|不支持的币种|Non -supported currency
 INVALID_CARD|不支持的卡头|Unswerving card head
-INVALID_COUNTRY|不支持的国家地区|Unwilling national and regions
-INVALID_PARAM|参数校验错误|Parameter test error
-INVALID_FILE_TYPE|不支持的文件类型|Unwilling file type
-DATABASE_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later
-BILLING_ERROR|计费规则未配置|Unschere
-CARD_CONFIG_ERROR|卡规则未配置|Card rules are not configured
-BIZ_ERROR|业务异常|Business abnormalities
-BIZ_STATUS_ERROR|订单状态未知，稍后重新查询订单状态 (12-19新增)|The order status is unknown. Query the order info again later please
-REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, please try it later
 BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求|If the request IP is not allowed, please use the preset export IP to initiate the request
-ERROR_ENV|该操作只允许在测试环境执行|If the request IP is not allowed, please use the preset export IP to initiate the request
+REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, please try it later
+BIZ_ERROR|业务异常|Business abnormalities
+BIZ_STATUS_ERROR|订单状态未知，稍后重新查询订单状态 |The order status is unknown. Query the order info again later please
 SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later
 
 ### 工具类
