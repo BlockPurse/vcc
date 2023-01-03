@@ -553,7 +553,85 @@ result 解密后内容
 
 <br>
 
-### 查詢开卡结果
+### 查询卡片订单信息（1月3日更新）
+
+<br>
+
+### URL
+/api/v1.0/card/getOrderInfo
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
+2  | orderType | 订单类型 | String(32) | 必填 | CARD_APPLY-开卡；CARD_RECHARGE-卡充值；CARD_REFUND-卡退款；CARD_CLOSE-销卡；CARD_REFUND-卡退款
+
+
+#### 请求示例
+
+	{
+      "custNo": "158519...017664",
+      "request": {
+        "requestNo": "20222...240002",
+        "orderType": "CARD_APPLY"
+      },
+      "verify": "234rfre43...u763ewdft"
+	}
+
+#### 待签名字符串
+
+	"requestNo="+requestNo
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | requestNo | 请求流水号 | String | 必填 |
+2  | orderNo | 平台订单号 | String | 必填 |
+3  | customerId | 客户编号 | String | 必填 |
+4  | orderType | 订单类型 | String | 必填 | 见附录：订单类型
+5  | orderDate | 订单日期 | Date | 必填 |
+6  | orderAmount | 订单金额 | Number | 必填 |
+7  | orderStatus | 订单状态 | String | 必填 | 见附录：订单状态
+8  | cardId | 卡编号 | String | / | 订单类型为CARD_APPLY时必填
+9  | cardNo | 卡号 | String | / | 订单类型为CARD_APPLY时必填
+10  | cardCurrency | 开卡币种 | String | / | 订单类型为CARD_APPLY时必填
+11  | cardCvv | 卡片CVV | String | / | 订单类型为CARD_APPLY时必填
+12  | cardExpiryDate | 卡片失效日期 | String | / |格式：yyyyMM， 订单类型为CARD_APPLY时必填
+
+#### 响应示例
+
+    {
+      "errorCode": null,
+      "errorMsg": null,
+      "result": "dafsdjfnh239u4....odnfb2i3ope",
+      "success": true
+    }
+
+
+result 解密后内容
+
+    {
+      "requestNo": "221...0000001",
+      "orderNo": "221...0000001",
+      "customerId": "221...0000001",
+      "orderType": "CARD_APPLY",
+      "orderDate": "yy...",
+      "orderAmount": 100.00,
+      "orderStatus": "SUCCESS",
+      "cardId": "221...0000001",
+      "cardNo": "22292...764",
+      "cardCurrency": "USD",
+      "cardCvv": "123321",
+      "cardExpiryDate": "202304"
+    }
+
+<br>
+
+### 查詢开卡结果（即将废弃）（即将废弃）
 
 <br>
 
@@ -618,77 +696,8 @@ result 解密后内容
     }
 <br>
 
-### 查询卡片订单信息(12-19新增)
 
-<br>
-
-### URL
-/api/v1.0/card/getOrderInfo
-
-#### 请求参数
-
-序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
-----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String(32) | 必填 | 唯一，不可重复
-
-
-#### 请求示例
-
-	{
-      "custNo": "158519...017664",
-      "request": {
-        "requestNo": "20222...240002"
-      },
-      "verify": "234rfre43...u763ewdft"
-	}
-
-#### 待签名字符串
-
-	"requestNo="+requestNo
-
-<br>
-
-#### 响应结果
-
-序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
-----|-----|-----------|--------|------------|-------|
-1  | requestNo | 请求流水号 | String | 必填 |
-2  | orderNo | 平台订单号 | String | 必填 |
-3  | customerId | 客户编号 | String | 必填 |
-4  | cardId | 卡编号 | String | / |
-5  | cardNo | 卡号 | String | / |
-6  | orderType | 订单类型 | String | 必填 | 见附录：订单类型
-7  | orderDate | 订单日期 | Date | 必填 |
-8  | orderAmount | 订单金额 | Number | 必填 |
-9  | orderStatus | 订单状态 | String | 必填 | 见附录：订单状态
-
-#### 响应示例
-
-    {
-      "errorCode": null,
-      "errorMsg": null,
-      "result": "dafsdjfnh239u4....odnfb2i3ope",
-      "success": true
-    }
-
-
-result 解密后内容
-
-    {
-      "requestNo": "221...0000001",
-      "orderNo": "221...0000001",
-      "customerId": "221...0000001",
-      "cardId": "221...0000001",
-      "cardNo": "22292...764",
-      "orderType": "CARD_APPLY",
-      "orderDate": "yy...",
-      "orderAmount": 100.00,
-      "orderStatus": "SUCCESS"
-    }
-
-<br>
-
-### 查询充值结果
+### 查询充值结果（即将废弃）
 
 <br>
 
@@ -741,7 +750,7 @@ result 解密后内容
 
 <br>
 
-### 查询退款结果
+### 查询退款结果（即将废弃）
 
 <br>
 
@@ -794,7 +803,7 @@ result 解密后内容
 
 <br>
 
-### 查询销卡结果
+### 查询销卡结果（即将废弃）
 
 <br>
 
@@ -1367,7 +1376,7 @@ UNKNOWN | 未知 | UNKNOWN |
 <br>
 
 
-## 错误码
+## 错误码（1月3日更新）
 
 错误码| 中文描述| 英文描述
 ----|-----|----|
@@ -1380,6 +1389,7 @@ ACCOUNT_NOTFOUND|账户不存在|Account does not exist
 CUSTOMER_NOTFOUND|客户不存在|Customers does not exist
 ORDER_NOTFOUND|订单不存在|The order does not exist
 CARD_NOT_FUND|卡片不存在|Card does not exist
+KEY_NOT_CONFIG|密钥未配置|The key is not configured
 BELOW_MINI_LIMIT|交易金额低于最小限定值|The transaction amount is lower than the minimum limited value
 CARD_LACK_BALANCE|卡片余额不足|Card Insufficient balance
 INVALID_CURRENCY|不支持的币种|Non -supported currency
