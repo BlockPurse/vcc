@@ -27,6 +27,7 @@
   - 卡片交易明细
   - 卡片账单明细
   - 账户余额查询
+  - 账户明细查询(1月3日更新)
   - 模拟卡片交易
   - Webhook 推送
 * 开卡币种
@@ -1127,6 +1128,98 @@ result 解密后内容
     ]
 
 <br>
+
+### 账户明细查询（1月3日更新）
+<br>
+
+### URL
+/api/v1.0/account/details
+
+#### 请求参数
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | beginDate | 开始日期 | String | 必填 | 格式：yyyy-MM-dd（查询包含beginDate）
+2  | endDate | 结束日期 | String | 必填 | 格式：yyyy-MM-dd（查询包含endDate）
+3  | currentPage | 当前页 | Number | 必填 | 正整数，从1开始
+4  | pageSize | 分页大小 | Number | 必填 | 最小10，最大50
+
+#### 请求示例
+
+	{
+      "custNo": "158519...017664",
+      "request": {
+        "beginDate": "2022-01-01",
+        "endDate": "2022-01-02",
+        "currentPage": 1,
+        "pageSize": 10
+      },
+      "verify": "234rfre43...u763ewdft"
+    }
+
+#### 待签名字符串
+
+	"beginDate="+beginDate+"&endDate="+endDate
+
+<br>
+
+#### 响应结果
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | totalCount | 总条数 | Number | 必填 |
+2  | currentPage | 当前页 | Number | 必填 |
+3  | pageSize | 页行数 | Number | 必填 |
+4  | totalPage | 总页数 | Number | 必填 |
+5  | list | 数据集 | 泛型 | 必填 | 见：list Item
+
+
+#### 响应示例
+
+	{
+      "errorCode":  null,
+      "errorMsg": null,
+      "result": {
+        "list": [{
+          "customerId": "1231...123123",
+          "orderNo": "1231...123123",
+          "requestNo": "1231...123123",
+          "cardId": "1231...123123",
+          "detailType": "card-apply",
+          "currency": "USD",
+          "amount": 100.00,
+          "createdAt": "2022-12-02 10:12:15"
+          },{
+          "customerId": "1231...123123",
+          "orderNo": "1231...123123",
+          "requestNo": "1231...123123",
+          "cardId": "1231...123123",
+          "detailType": "card-apply",
+          "currency": "USD",
+          "amount": 100.00,
+          "createdAt": "2022-12-02 10:12:15"
+          }
+        },
+        "currentPage": 1,
+        "pageSize": 50,
+        "totalCount": 100
+        "totalPage": 2
+      },
+      "success": true
+    }
+
+list Item:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | customerId | 商户客户编号 | String | 必填 |
+2  | orderNo | 平台订单号 | String | / |
+3  | requestNo | 商户请求流水号 | String | / |
+4  | cardId | 卡编号 | String | / |
+5  | detailType | 明细类型 | String | 必填 |
+6  | currency | 币种 | String | 必填 |
+7  | amount | 金额 | Number | 必填 |
+8  | createdAt | 交易时间 | String | / |
 
 
 ### 模拟卡片交易
