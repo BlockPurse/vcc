@@ -1240,7 +1240,7 @@ list Item:
 5  | detailType | 明细类型 | String | 必填 | 见：明细类型
 6  | currency | 币种 | String | 必填 |
 7  | amount | 金额 | Number | 必填 |
-8  | createdAt | 交易时间 | String | / |
+8  | createdAt | 交易时间 | Date | 必填 |
 
 <br>
 <br>
