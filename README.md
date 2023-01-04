@@ -32,6 +32,7 @@
   - 3.18、Webhook 推送
 * 开卡币种
 * 交易类型
+* 明细类型
 * 交易状态
 * 错误码（1月3日更新）
 * 工具类
@@ -1236,7 +1237,7 @@ list Item:
 2  | orderNo | 平台订单号 | String | / |
 3  | requestNo | 商户请求流水号 | String | / |
 4  | cardId | 卡编号 | String | / |
-5  | detailType | 明细类型 | String | 必填 |
+5  | detailType | 明细类型 | String | 必填 | 见：明细类型
 6  | currency | 币种 | String | 必填 |
 7  | amount | 金额 | Number | 必填 |
 8  | createdAt | 交易时间 | String | / |
@@ -1453,7 +1454,7 @@ USD | 美元
 交易类型 | 中文描述| 英文描述
 ----|-----|----|
 AUTH | 授权.消费 | AUTH |
-AUTH_QUERY | 授权.查询 | AUTH QUERY(12-19新增) | 
+AUTH_QUERY | 授权.查询 | AUTH QUERY | 
 REVERSAL | 冲正 | REVERSAL |
 REFUND | 退款 | REFUND |
 FEE | 手续费 | FEE |
@@ -1463,16 +1464,36 @@ ORIGINAL_CREDIT_REVERSAL | OCT退款冲正 | ORIGINAL CREDIT REVERSAL |
 
 <br>
 
-## 交易状态
+## 明细类型（1月3日更新）
 
-交易状态 | 中文描述| 英文描述
-----|-----|----|
-APPROVED | 消费 | APPROVED |
-DECLINED | 拒绝 | DECLINED |
+明细类型 | 描述|
+----|-----|
+bal-recharge | 余额充值 |
+bal-recharge-fee | 余额充值手续费 |  
+card-apply | 开卡 |
+card-apply-fee | 开卡手续费 |
+card-cancel | 销卡 |
+card-cancel-fee | 销卡手续费 |
+card-recharge | 卡充值 |
+card-recharge-fee | 卡充值手续费 |
+card-refund | 卡退款 |
+card-refund-fee | 卡退款手续费 |
+card-trade-fee | 卡交易处理费 | 
+card-trade-refund-fee | 卡交易退款处理费 |
+card-trade-kuajing-fee | 卡跨境交易处理费 |
 
 <br>
 
-## 订单类型 (12-19新增)
+## 交易状态
+
+交易状态 | 中文描述
+----|-----|
+APPROVED | 消费 |
+DECLINED | 拒绝 |
+
+<br>
+
+## 订单类型
 
 订单类型 | 中文描述| 英文描述
 ----|-----|----|
@@ -1481,7 +1502,7 @@ CARD_RECHARGE | 卡充值 | CARD RECHARGE |
 CARD_REFUND | 卡退款 | CARD REFUND |
 CARD_CLOSE | 销卡 | CARD CLOSE |
 
-## 订单状态 (12-19新增)
+## 订单状态 
 
 订单状态 | 中文描述| 英文描述
 ----|-----|----|
