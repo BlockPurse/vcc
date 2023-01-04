@@ -1451,16 +1451,16 @@ USD | 美元
 
 ## 交易类型
 
-交易类型 | 中文描述| 英文描述
-----|-----|----|
-AUTH | 授权.消费 | AUTH |
-AUTH_QUERY | 授权.查询 | AUTH QUERY | 
-REVERSAL | 冲正 | REVERSAL |
-REFUND | 退款 | REFUND |
-FEE | 手续费 | FEE |
-FEE_REVERSAL | 手续费冲正 | FEE REVERSAL |
-ORIGINAL_CREDIT | OCT退款 | ORIGINAL CREDIT |
-ORIGINAL_CREDIT_REVERSAL | OCT退款冲正 | ORIGINAL CREDIT REVERSAL |
+交易类型 | 描述
+----|-----|
+AUTH | 授权.消费 
+AUTH_QUERY | 授权.查询 
+REVERSAL | 冲正
+REFUND | 退款
+FEE | 手续费
+FEE_REVERSAL | 手续费冲正
+ORIGINAL_CREDIT | OCT退款
+ORIGINAL_CREDIT_REVERSAL | OCT退款冲正
 
 <br>
 
@@ -1486,7 +1486,7 @@ card-trade-kuajing-fee | 卡跨境交易处理费 |
 
 ## 交易状态
 
-交易状态 | 中文描述
+交易状态 | 描述
 ----|-----|
 APPROVED | 消费 |
 DECLINED | 拒绝 |
@@ -1495,48 +1495,48 @@ DECLINED | 拒绝 |
 
 ## 订单类型
 
-订单类型 | 中文描述| 英文描述
-----|-----|----|
-CARD_APPLY | 开卡 | CARD APPLY |
-CARD_RECHARGE | 卡充值 | CARD RECHARGE |
-CARD_REFUND | 卡退款 | CARD REFUND |
-CARD_CLOSE | 销卡 | CARD CLOSE |
+订单类型 | 描述
+----|-----|
+CARD_APPLY | 开卡
+CARD_RECHARGE | 卡充值 
+CARD_REFUND | 卡退款 
+CARD_CLOSE | 销卡 
 
 ## 订单状态 
 
-订单状态 | 中文描述| 英文描述
-----|-----|----|
-INIT | 初始 | INIT |
-SUCCESS | 成功 | SUCCESS |
-FAILED | 失败 | FAILED |
-UNKNOWN | 未知 | UNKNOWN |
+订单状态 | 描述
+----|-----|
+INIT | 初始 
+SUCCESS | 成功
+FAILED | 失败 
+UNKNOWN | 未知
 
 <br>
 
 
 ## 错误码（1月3日更新）
 
-错误码| 中文描述| 英文描述
-----|-----|----|
-INVALID_PARAM|参数校验错误|Parameter test error
-REQUEST_REPEAT|重复的请求|Repeated request
-SIGN_VERIFY_FAIL|签名验证不通过|Signature verification is not approved
-AUTHORIZATION_FAILED|权限校验失败|Permanent verification failed
-LACK_BALANCE|余额不足|Insufficient balance
-ACCOUNT_NOTFOUND|账户不存在|Account does not exist
-CUSTOMER_NOTFOUND|客户不存在|Customers does not exist
-ORDER_NOTFOUND|订单不存在|The order does not exist
-CARD_NOT_FUND|卡片不存在|Card does not exist
-KEY_NOT_CONFIG|密钥未配置|The key is not configured
-BELOW_MINI_LIMIT|交易金额低于最小限定值|The transaction amount is lower than the minimum limited value
-CARD_LACK_BALANCE|卡片余额不足|Card Insufficient balance
-INVALID_CURRENCY|不支持的币种|Non -supported currency
-INVALID_CARD|不支持的卡头|Unswerving card head
-BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求|If the request IP is not allowed, please use the preset export IP to initiate the request
-REQUEST_BUSY|请求太过频繁，请稍后再试|The request is too frequent, please try it later
-BIZ_ERROR|业务异常|Business abnormalities
-BIZ_STATUS_ERROR|订单状态未知，稍后重新查询订单状态 |The order status is unknown. Query the order info again later please
-SYSTEM_ERROR|系统繁忙，请稍后再试|The system is busy, please try again later
+错误码| 描述|
+----|-----|
+INVALID_PARAM|参数校验错误
+REQUEST_REPEAT|重复的请求
+SIGN_VERIFY_FAIL|签名验证不通过
+AUTHORIZATION_FAILED|权限校验失败
+LACK_BALANCE|余额不足
+ACCOUNT_NOTFOUND|账户不存在
+CUSTOMER_NOTFOUND|客户不存在
+ORDER_NOTFOUND|订单不存在
+CARD_NOT_FUND|卡片不存在
+KEY_NOT_CONFIG|密钥未配置
+BELOW_MINI_LIMIT|交易金额低于最小限定值
+CARD_LACK_BALANCE|卡片余额不足
+INVALID_CURRENCY|不支持的币种
+INVALID_CARD|不支持的卡头
+BAD_REQUEST_IP|不允许的请求IP，请使用预设的出口IP发起请求
+REQUEST_BUSY|请求太过频繁，请稍后再试
+BIZ_ERROR|业务异常
+BIZ_STATUS_ERROR|订单状态未知，稍后重新查询订单状态
+SYSTEM_ERROR|系统繁忙，请稍后再试
 
 ### 工具类
 
