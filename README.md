@@ -1420,16 +1420,39 @@ Result:
 
 序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
 ----|-----|-----------|--------|------------|-------|
-1  | orderId | 服务系统返回的单号 | String | 必填 | 记录编号
-2  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
-3  | userReqNo | 请求流水号 | String | 必填 | 客户上送的请求流水号
-4  | opType | 订单类型 | int | 必填 | 0-销卡
-5  | status | 状态 | int | 必填 | 状态：0 - 待处理；1 - 处理中；2 - 成功；3 - 失败；
-6  | statusDesc | 状态描述 | String | 必填 | 状态描述
-7  | amount | 订单金额 | Number | 必填 | 销卡金额
-8  | fee | 手续费 | Number | 必填 | 订单对应的手续费
-9  | createAt | 创建时间 | String | 必填 | 创建的时间，格式：yyy-MM-dd HH:mm:ss
+1  | recordNo | 记录编号 | String | 必填 |
+2  | cardId | 卡唯一编号 | String | 必填 |
+3  | settleDate | 账单日期 | String | 必填 |
+4  | transCurrency | 交易币种 | String | 必填 |
+5  | transCurrencyAmt | 交易币种金额 | Number | 必填 |
+6  | billCurrency | 账单币种 | String | 必填 |
+7  | billCurrencyAmt | 账单金额 | Number | 必填 |
+8  | approvalCode | 授权码 | String | 必填 |
+9  | isCredit | 收付标志 | String | 必填 | 1:收(退款)  0:付(消费)
+10  | merchantName | 授权码 | String | / |
 
+<br>
+request (dataType=ACCOUNT_REFUND) 账户退款(销卡后退款)解密后内容
+
+    {
+      "customerId": "221101...000001",
+      "orderNo": "221101...000001",
+      "cardId": "221...0000001",
+      "currency": "USD",
+      "amount": 0.00,
+      "createAt": "2023-01-10 17:06:00"
+    }
+
+Result:
+
+序号 | 字段 |  字段描述 | 字段类型   | 必填    | 备注
+----|-----|-----------|--------|------------|-------|
+1  | customerId | 客户编号 | String | 必填 |
+2  | orderNo | 平台订单号 | String | 必填 | 平台订单号
+3  | cardId | 卡唯一编号 | String | 必填 | 卡片编号
+4  | currency | 币种 | int | 必填 | 见：开卡币种
+5  | amount | 金额 | Number | 必填 |
+6  | createAt | 创建时间 | Date | 必填 |
 <br>
 
 <br>
